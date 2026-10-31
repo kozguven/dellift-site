@@ -492,7 +492,8 @@ def kategori_sayfasi(k):
     blok = ""
     if urunler:
         blok += f'<h2 style="margin-top:48px">Öne çıkan modeller</h2><div class="urunler">{"".join(urun_kart(u) for u in urunler)}</div>'
-    kt = "".join(katalog_kartlari(x, k["slug"]) for x in KATALOGLAR)
+    kt = "".join(f'<h3 style="margin:32px 0 0;font-size:1.5rem">{e(next(m["ad"] for m in MARKALAR if m["slug"] == x))}</h3>' + c
+                 for x in KATALOGLAR if (c := katalog_kartlari(x, k["slug"])))
     if kt:
         blok += f'<h2 style="margin-top:48px">Model kataloğu</h2><p style="color:var(--gri)">Üretici broşürleri; teknik föyü indirip fiyat için bize yazabilirsiniz.</p>{kt}'
     if markalar:
