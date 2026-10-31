@@ -2,10 +2,10 @@
 """DELLIFT statik site üretici. Çalıştır: python3 araclar/build.py  → site/ altına HTML yazar."""
 import html, os, urllib.parse
 from datetime import date
-from veri import FIRMA as F, MARKALAR, KATEGORILER, URUNLER, SSS
+from veri import FIRMA as F, MARKALAR, KATEGORILER, URUNLER, SERILER, SSS
 
 KOK = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "site")
-SURUM = "4"
+SURUM = "5"
 e = html.escape
 
 # ---- ikonlar ----
@@ -237,6 +237,7 @@ def ana_sayfa():
 <div class="bolum-bas"><div><span class="etiket">Ürünler</span><h2>Her iş için doğru makine</h2></div>
 <p>Dizel ve akülü forkliftlerden istif makinalarına, akülü ve manuel transpaletlere kadar geniş ürün yelpazesi.</p></div>
 <div class="kategoriler">{kartlar}</div>
+{f'<h3 style="margin:48px 0 18px;font-size:1.7rem">Öne çıkan modeller</h3><div class="urunler">{"".join(urun_kart(u) for u in URUNLER[:3])}</div>' if URUNLER else ""}
 </div></section>'''
 
     band = f'''<section class="band"><div class="kap">
@@ -452,9 +453,13 @@ def _js(s):
 def urun_kart(u):
     m = next((x["ad"] for x in MARKALAR if x["slug"] == u["marka"]), "")
     satir = "".join(f"<tr><td>{e(a)}</td><td>{e(d)}</td></tr>" for a, d in u.get("ozellik", []))
-    return f'''<div class="urun"><img src="/{u["gorsel"]}" alt="{e(u["ad"])}" loading="lazy"><div class="ic">
-<span class="etiket">{e(m)} · {e(u.get("model", ""))}</span><h3>{e(u["ad"])}</h3><p style="color:var(--gri);font-size:.95rem">{e(u.get("aciklama", ""))}</p>
-<table>{satir}</table><a class="btn btn-k" style="margin-top:auto" href="{wa_link("Merhaba, " + u["ad"] + " için fiyat almak istiyorum.")}" target="_blank" rel="noopener">Fiyat Sor {I["ok"]}</a></div></div>'''
+    d = u.get("detay")
+    img = f'<img src="/{u["gorsel"]}" alt="{e(u["ad"])}" loading="lazy">'
+    bas = f'<a href="/{d}" style="text-decoration:none">{e(u["ad"])}</a>' if d else e(u["ad"])
+    detay = f'<a class="btn btn-s" href="/{d}">Teknik Özellikler</a>' if d else ""
+    return f'''<div class="urun">{f'<a href="/{d}">{img}</a>' if d else img}<div class="ic">
+<span class="etiket">{e(m)} · {e(u.get("model", ""))}</span><h3>{bas}</h3><p style="color:var(--gri);font-size:.95rem">{e(u.get("aciklama", ""))}</p>
+<table>{satir}</table><div class="urun-btn">{detay}<a class="btn btn-k" href="{wa_link("Merhaba, " + u["ad"] + " için fiyat almak istiyorum.")}" target="_blank" rel="noopener">Fiyat Sor {I["ok"]}</a></div></div></div>'''
 
 
 def marka_kartlari(markalar, kat_ad):
@@ -509,6 +514,37 @@ def marka_sayfasi(m):
     return sayfa(f"marka/{m['slug']}", f"{m['ad']} Forklift", f"{m['ad']} dizel ve akülü forklift, istif makinası satış, kiralama ve servis. DELLIFT İstanbul.", govde, "urun")
 
 
+def seri_sayfasi(sr):
+    m = next(x for x in MARKALAR if x["slug"] == sr["marka"])
+    k = kat(sr["kat"])
+    gk, n = sr["gorsel_klasor"], sr["gorsel_adet"]
+    ana = f'<a class="galeri-ana" href="/{gk}/01.webp" target="_blank" rel="noopener"><img id="galeri-buyuk" src="/{gk}/01.webp" alt="{e(sr["ad"])}" width="1600" height="1077"></a>'
+    kucuk = "".join(f'<button type="button"{" class=aktif" if i == 1 else ""} aria-label="Görsel {i}"><img src="/{gk}/{i:02d}-800.webp" alt="" loading="lazy"></button>' for i in range(1, n + 1))
+    modeller = sr["modeller"]
+    tablo = "".join(f'<tr class="ara"><th colspan="{len(modeller) + 2}">{e(r[0])}</th></tr>' if r[1] is None else
+                    f'<tr><td>{e(r[0])}</td><td class="birim">{e(r[1])}</td>' + "".join(f"<td>{e(v)}</td>" for v in r[2:]) + "</tr>" for r in sr["teknik"])
+    ust = "".join(f"<th>{e(x)}</th>" for x in modeller)
+    one = "".join(f'<li><span class="ik">{I["kalkan"]}</span><div><b>{e(a)}</b><span>{e(b)}</span></div></li>' for a, b in sr["one_cikan"])
+    sor = wa_link(f"Merhaba, {sr['ad']} ({' / '.join(modeller)}) için fiyat almak istiyorum.")
+    govde = sayfa_bas(e(sr["ad"]), e(sr["kisa"]), [("Ürünler", "/urunler"), (k["ad"], "/" + k["slug"]), (m["ad"], "/marka/" + m["slug"]), (" / ".join(modeller), None)]) + f'''
+<section class="bolum"><div class="kap urun-detay">
+<div class="galeri">{ana}<div class="galeri-kucuk">{kucuk}</div></div>
+<div><span class="etiket">{e(m["ad"])} · {e(" / ".join(modeller))}</span><h2>{e(sr["ad"])}</h2>
+<p style="font-size:1.08rem">{e(sr["giris"])}</p>
+<div class="model-ozet">{"".join(f'<div><b>{e(x)}</b><span>{e(next(r for r in sr["teknik"] if r[0] == "Yük kapasitesi")[2 + i])} kg</span></div>' for i, x in enumerate(modeller))}</div>
+<div class="urun-btn"><a class="btn btn-k" href="{sor}" target="_blank" rel="noopener">{I["wa"]} Fiyat Sor</a><a class="btn btn-s" href="tel:{F["tel_uri"]}">{I["tel"]} {F["tel"]}</a>{f'<a class="btn btn-s" href="/{sr["katalog"]}" target="_blank" rel="noopener">Katalog (PDF)</a>' if sr.get("katalog") else ""}</div>
+<p style="color:var(--gri);font-size:.95rem;margin-top:16px">Satış, kiralama ve servis · 2 yıl / 2.000 saat üretici garantisi · 24 saatte servis ve yedek parça</p>
+</div></div></section>
+<section class="bolum gri"><div class="kap"><div class="bolum-bas"><div><span class="etiket">Öne çıkanlar</span><h2>Neden NMR serisi?</h2></div></div>
+<ul class="ozellikler iki-sutun">{one}</ul></div></section>
+<section class="bolum" id="teknik"><div class="kap"><div class="bolum-bas"><div><span class="etiket">Teknik föy</span><h2>Teknik özellikler</h2></div><p>Değerler üretici kataloğundandır.</p></div>
+<div class="tablo-kap"><table class="teknik"><thead><tr><th>Model</th><th class="birim">Birim</th>{ust}</tr></thead><tbody>{tablo}</tbody></table></div></div></section>''' + iletisim_blok()
+    sema = ('<script type="application/ld+json">' + "[" + ",".join('{"@context":"https://schema.org","@type":"Product","name":' + _js(f"{m['ad']} {x} Dizel Forklift") +
+            ',"brand":{"@type":"Brand","name":' + _js(m["ad"]) + '},"model":' + _js(x) + ',"image":' + _js(F["site"] + f"/{gk}/01.webp") +
+            ',"description":' + _js(sr["giris"]) + "}" for x in modeller) + "]</script>")
+    return sayfa("urun/" + sr["slug"], f"{sr['ad']} – {' / '.join(modeller)}", f"{sr['ad']} ({' / '.join(modeller)}): {sr['kisa']}. Teknik özellikler, fiyat, satış ve kiralama — DELLIFT İstanbul.", govde, "urun", sema)
+
+
 def iletisim():
     govde = sayfa_bas("İletişim", "Bize telefonla, WhatsApp'tan ya da formla ulaşın; aynı gün dönüş yapalım.", [("İletişim", None)]) + iletisim_blok(gri=False)
     return sayfa("iletisim", "İletişim", f"DELLIFT iletişim: {F['tel']}, {F['eposta']}. {F['adres']}.", govde, "iletisim")
@@ -535,6 +571,7 @@ def main():
                 yaz("finansal-cozumler", finans()), yaz("sss", sss()), yaz("urunler", urunler_sayfasi()), yaz("iletisim", iletisim())]
     sayfalar += [yaz(k["slug"], kategori_sayfasi(k)) for k in KATEGORILER]
     sayfalar += [yaz(f"marka/{m['slug']}", marka_sayfasi(m)) for m in MARKALAR]
+    sayfalar += [yaz(f"urun/{sr['slug']}", seri_sayfasi(sr)) for sr in SERILER]
     yaz("404", bulunamadi())
     bugun = date.today().isoformat()
     urls = "".join(f"<url><loc>{F['site']}{'/' if s == 'index' else '/' + s}</loc><lastmod>{bugun}</lastmod></url>" for s in sayfalar)

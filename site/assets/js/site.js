@@ -27,4 +27,10 @@
   // video yalnız görünürken oynasın
   var v=document.querySelector('.video-kutu video');
   if(v&&'IntersectionObserver'in window){new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?v.play().catch(function(){}):v.pause();});},{threshold:.3}).observe(v);}
+
+  // ürün galerisi: küçük görsele tıklayınca büyüğü değişsin
+  var gb=document.getElementById('galeri-buyuk');
+  if(gb){[].forEach.call(document.querySelectorAll('.galeri-kucuk button'),function(b){b.addEventListener('click',function(){
+    var src=b.querySelector('img').getAttribute('src').replace('-800.webp','.webp');gb.src=src;gb.parentNode.href=src;
+    [].forEach.call(document.querySelectorAll('.galeri-kucuk button'),function(x){x.classList.toggle('aktif',x===b)});});});}
 })();

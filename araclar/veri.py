@@ -64,7 +64,75 @@ KATEGORILER = [
 #         "model": "CPCD30", "gorsel": "assets/img/urun/jac-cpcd30.webp",
 #         "ozellik": [("Kapasite", "3.000 kg"), ("Motor", "Xinchai Euro 5"), ("Asansör", "4,50 m")],
 #         "aciklama": "Dış saha, depo ve ağır yük taşıma operasyonları için ..."}
-URUNLER = []
+URUNLER = [
+    {"kat": "dizel-forklift", "marka": "nigmer", "ad": "Niğmer 3 Ton Dizel Forklift", "model": "NMR 30D",
+     "gorsel": "assets/img/urun/nigmer-nmr/01-800.webp", "detay": "urun/nigmer-nmr-dizel-forklift",
+     "ozellik": [("Kapasite", "3.000 kg"), ("Kaldırma", "4.700 mm"), ("Motor", "Xinchai Euro V · 44,8 kW"), ("Garanti", "2 yıl / 2.000 saat")],
+     "aciklama": "Yerli üretim, Euro V dizel motorlu, havalı lastikli 3 ton forklift; depo, saha ve yükleme işleri için."},
+    {"kat": "dizel-forklift", "marka": "nigmer", "ad": "Niğmer 3,5 Ton Dizel Forklift", "model": "NMR 35D",
+     "gorsel": "assets/img/urun/nigmer-nmr/02-800.webp", "detay": "urun/nigmer-nmr-dizel-forklift",
+     "ozellik": [("Kapasite", "3.500 kg"), ("Kaldırma", "4.700 mm"), ("Motor", "Xinchai Euro V · 44,8 kW"), ("Garanti", "2 yıl / 2.000 saat")],
+     "aciklama": "Aynı gövdede 3,5 ton kapasite; daha ağır paletler ve yoğun vardiyalar için güçlü dizel forklift."},
+]
+
+# Seri detay sayfaları: /urun/<slug>. Teknik tablo üreticinin kataloğundan birebir (Niğmer NMR katalogu, 31.10.2026).
+SERILER = [
+    {"slug": "nigmer-nmr-dizel-forklift", "marka": "nigmer", "kat": "dizel-forklift",
+     "ad": "Niğmer NMR Serisi Dizel Forklift", "kisa": "3 ve 3,5 ton · Euro V dizel · yerli üretim",
+     "gorsel_klasor": "assets/img/urun/nigmer-nmr", "gorsel_adet": 14,
+     "giris": "Niğmer NMR serisi, Niğde'de üretilen, Euro V emisyon standardında dizel forkliftlerdir. 3 ton (NMR 30D) ve "
+              "3,5 ton (NMR 35D) kapasiteli iki model, 4,70 m kaldırma yüksekliği, havalı lastik ve 60 HP Xinchai dizel "
+              "motorla depo, şantiye ve açık saha işlerinde uzun ve kesintisiz çalışma sunar. Üretici garantisi 2 yıl / 2.000 saattir.",
+     "one_cikan": [
+         ("60 HP Euro V dizel motor", "Xinchai 3E22YG51; 44,8 kW / 2.400 dev/dk, 210 Nm tork."),
+         ("Otomatik rejenerasyon", "Partikül filtresi için otomatik rejenerasyon imkânı."),
+         ("15 mm ST37 tek parça şase", "Güçlendirilmiş monoblok şase ile uzun ömür."),
+         ("Emniyet kemeri ve operatör algılama", "Operatör koltukta değilse ve kemer takılı değilse uyarı."),
+         ("Ataşmanlar için 4. yol seçeneği", "Yan kaydırma, çatal pozisyoner gibi ataşmanlara hazır."),
+         ("32 cc yağ pompası", "Güçlü hidrolik ile hızlı kaldırma: yüklü 420 mm/sn'ye kadar."),
+     ],
+     "modeller": ["NMR 30D", "NMR 35D"],
+     "teknik": [
+         ("Genel", None),
+         ("Yük kapasitesi", "kg", "3.000", "3.500"),
+         ("Yük merkezi", "mm", "500", "500"),
+         ("Azami kaldırma yüksekliği", "mm", "4.700", "4.700"),
+         ("Emisyon standardı", "", "EURO V", "EURO V"),
+         ("Motor tipi", "", "Dizel", "Dizel"),
+         ("Ölçüler", None),
+         ("Toplam yükseklik (üst koruma)", "mm", "2.140", "2.140"),
+         ("Toplam uzunluk (çatallı / çatalsız)", "mm", "3.814 / 2.744", "3.820 / 2.750"),
+         ("Tekerlek tabanı", "mm", "1.750", "1.750"),
+         ("Toplam genişlik", "mm", "1.225", "1.225"),
+         ("Min. dönüş yarıçapı (dış)", "mm", "2.400", "2.400"),
+         ("Min. dönüş yarıçapı (iç)", "mm", "80", "80"),
+         ("Direk eğim açısı (ileri / geri)", "°", "6 / 6 – 6 / 12", "6 / 6 – 6 / 12"),
+         ("Çatal boyutu", "mm", "1220 × 125 × 45", "1220 × 125 × 45"),
+         ("Ağırlık", None),
+         ("Toplam ağırlık", "kg", "4.660", "4.900"),
+         ("Ağırlık dağılımı, yüklü (ön / arka)", "kg", "7.280 / 820", "8.065 / 870"),
+         ("Ağırlık dağılımı, yüksüz (ön / arka)", "kg", "1.790 / 2.810", "1.975 / 3.108"),
+         ("Lastikler ve frenler", None),
+         ("Lastik tipi (ön / arka)", "", "Havalı", "Havalı"),
+         ("Lastik boyutu (ön / arka)", "", "28x9-15-14PR / 6.5-10-12PR", "28x9-15-14PR / 6.5-10-12PR"),
+         ("Servis freni", "", "Hidrolik pedal", "Hidrolik pedal"),
+         ("El freni", "", "Mekanik el kolu", "Mekanik el kolu"),
+         ("Performans", None),
+         ("Azami çekme gücü (yüklü / yüksüz)", "kN", "22 / 13,7", "23 / 14"),
+         ("Azami tırmanma (yüklü / yüksüz)", "%", "32 / 22", "30 / 21"),
+         ("Yürüyüş hızı (yüklü / yüksüz)", "km/sa", "19 / 19", "19 / 19"),
+         ("Kaldırma hızı (yüklü / yüksüz)", "mm/sn", "420 / 450", "370 / 390"),
+         ("İndirme hızı (yüklü / yüksüz)", "mm/sn", "450 / 460", "450 / 460"),
+         ("Motor ve akü", None),
+         ("Motor üreticisi / modeli", "", "Xinchai 3E22YG51", "Xinchai 3E22YG51"),
+         ("Anma gücü / devri", "kW/dev/dk", "44,8 / 2.400", "44,8 / 2.400"),
+         ("Azami tork / devri", "Nm/dev/dk", "210 / 1.600–1.800", "210 / 1.600–1.800"),
+         ("Silindir sayısı", "", "3", "3"),
+         ("Hacim", "litre", "2,23", "2,23"),
+         ("Akü (voltaj / kapasite)", "V/Ah", "12 / 95", "12 / 95"),
+     ],
+     "katalog": "assets/dosya/nigmer-nmr-dizel-forklift-katalog.pdf"},
+]
 
 SSS = [
     ("Forklift alırken nelere dikkat etmeliyim?",
