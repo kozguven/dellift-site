@@ -328,3 +328,16 @@ table.teknik thead .birim{color:#c9ccd0}
 table.teknik tr.ara th{background:var(--acik);color:var(--kirmizi);font-family:var(--baslik);text-transform:uppercase;letter-spacing:.1em;font-size:.95rem}
 @media(max-width:900px){.urun-detay{grid-template-columns:1fr;gap:32px}.ozellikler.iki-sutun{grid-template-columns:1fr}}
 @media(max-width:560px){.galeri-kucuk{grid-template-columns:repeat(5,1fr)}.model-ozet{flex-direction:column}}
+.galeri-ana img{object-fit:contain}
+/* model kataloğu */
+.katalog{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:18px}
+.kt{border:1px solid var(--cizgi);border-radius:var(--r);overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.kt img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;background:var(--acik);border-bottom:1px solid var(--cizgi)}
+.kt .ic{padding:14px 16px 16px;display:flex;flex-direction:column;flex:1}
+.kt .tur{font-family:var(--baslik);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--kirmizi);font-weight:700}
+.kt b{font-family:var(--baslik);font-size:1.2rem;line-height:1.15;margin:2px 0 4px}
+.kt p{color:var(--gri);font-size:.92rem;margin:0 0 12px;flex:1}
+.kt .bag{display:flex;justify-content:space-between;gap:8px;font-size:.9rem;font-weight:600}
+.kt .bag a{text-decoration:none}.kt .bag a:hover{color:var(--kirmizi)}.kt .bag .wa{color:var(--kirmizi)}
+@media(max-width:1000px){.katalog{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.katalog{grid-template-columns:1fr 1fr}}

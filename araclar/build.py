@@ -2,10 +2,10 @@
 """DELLIFT statik site üretici. Çalıştır: python3 araclar/build.py  → site/ altına HTML yazar."""
 import html, os, urllib.parse
 from datetime import date
-from veri import FIRMA as F, MARKALAR, KATEGORILER, URUNLER, SERILER, SSS
+from veri import FIRMA as F, MARKALAR, KATEGORILER, URUNLER, SERILER, SSS, KATALOGLAR
 
 KOK = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "site")
-SURUM = "5"
+SURUM = "6"
 e = html.escape
 
 # ---- ikonlar ----
@@ -60,7 +60,7 @@ def sayfa(yol, baslik, aciklama, govde, aktif="", ek_bas=""):
     sema = ('<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness",'
             f'"name":"{F["unvan"]}","url":"{F["site"]}","telephone":"{F["tel_uri"]}","email":"{F["eposta"]}",'
             f'"image":"{F["site"]}/assets/img/forklift-nigmer.webp","logo":"{F["site"]}/assets/img/logo.png",'
-            '"address":{"@type":"PostalAddress","streetAddress":"Battalgazi Mah. Egemen Sk. No:44","addressLocality":"Sultanbeyli",'
+            '"address":{"@type":"PostalAddress","streetAddress":"Battalgazi Mah. Egemen Sk. No:20","addressLocality":"Sultanbeyli",'
             '"addressRegion":"İstanbul","addressCountry":"TR"},"sameAs":["' + F["instagram"] + '"]}</script>') if yol == "index" else ""
     return f'''<!doctype html>
 <html lang="tr">
@@ -237,7 +237,7 @@ def ana_sayfa():
 <div class="bolum-bas"><div><span class="etiket">Ürünler</span><h2>Her iş için doğru makine</h2></div>
 <p>Dizel ve akülü forkliftlerden istif makinalarına, akülü ve manuel transpaletlere kadar geniş ürün yelpazesi.</p></div>
 <div class="kategoriler">{kartlar}</div>
-{f'<h3 style="margin:48px 0 18px;font-size:1.7rem">Öne çıkan modeller</h3><div class="urunler">{"".join(urun_kart(u) for u in URUNLER[:3])}</div>' if URUNLER else ""}
+{f'<h3 style="margin:48px 0 18px;font-size:1.7rem">Öne çıkan modeller</h3><div class="urunler">{"".join(urun_kart(URUNLER[i]) for i in (0, 2, 4) if i < len(URUNLER))}</div>' if URUNLER else ""}
 </div></section>'''
 
     band = f'''<section class="band"><div class="kap">
@@ -462,6 +462,21 @@ def urun_kart(u):
 <table>{satir}</table><div class="urun-btn">{detay}<a class="btn btn-k" href="{wa_link("Merhaba, " + u["ad"] + " için fiyat almak istiyorum.")}" target="_blank" rel="noopener">Fiyat Sor {I["ok"]}</a></div></div></div>'''
 
 
+def katalog_kartlari(marka, kat_slug=None):
+    if marka not in KATALOGLAR:
+        return ""
+    m = next(x["ad"] for x in MARKALAR if x["slug"] == marka)
+    dil = KATALOGLAR[marka][1]
+    out = ""
+    for _d, slug, model, acik, ks in KATALOGLAR[marka][2]:
+        if kat_slug and ks != kat_slug:
+            continue
+        out += f'''<div class="kt"><a href="/assets/dosya/{marka}/{slug}.pdf" target="_blank" rel="noopener"><img src="/assets/img/katalog/{marka}/{slug}.webp" alt="{e(m)} {e(model)} kataloğu" loading="lazy"></a>
+<div class="ic"><span class="tur">{e(kat(ks)["kisa"])}</span><b>{e(m)} {e(model)}</b><p>{e(acik)}</p>
+<div class="bag"><a href="/assets/dosya/{marka}/{slug}.pdf" target="_blank" rel="noopener">Katalog (PDF{", İng." if dil == "EN" else ""})</a><a class="wa" href="{wa_link(f"Merhaba, {m} {model} için fiyat almak istiyorum.")}" target="_blank" rel="noopener">Fiyat sor →</a></div></div></div>'''
+    return f'<div class="katalog">{out}</div>' if out else ""
+
+
 def marka_kartlari(markalar, kat_ad):
     out = ""
     for m in markalar:
@@ -477,6 +492,9 @@ def kategori_sayfasi(k):
     blok = ""
     if urunler:
         blok += f'<h2 style="margin-top:48px">Öne çıkan modeller</h2><div class="urunler">{"".join(urun_kart(u) for u in urunler)}</div>'
+    kt = "".join(katalog_kartlari(x, k["slug"]) for x in KATALOGLAR)
+    if kt:
+        blok += f'<h2 style="margin-top:48px">Model kataloğu</h2><p style="color:var(--gri)">Üretici broşürleri; teknik föyü indirip fiyat için bize yazabilirsiniz.</p>{kt}'
     if markalar:
         blok += f'<h2 style="margin-top:48px">Markalar</h2><p style="color:var(--gri)">Güncel model, stok ve teknik föy için markayı seçip bize yazın.</p>{marka_kartlari(markalar, k["ad"])}'
     else:
@@ -510,7 +528,7 @@ def marka_sayfasi(m):
     cipler = '<div class="cipler">' + "".join(f'<a href="/marka/{x["slug"]}"{" aria-current=page" if x["slug"] == m["slug"] else ""}>{e(x["ad"])}</a>' for x in MARKALAR) + "</div>"
     govde = sayfa_bas(e(m["ad"]), e(m["ozet"]), [("Ürünler", "/urunler"), (m["ad"], None)]) + f'''<section class="bolum"><div class="kap">
 <div class="metin"><p style="font-size:1.12rem">{e(m["ad"])} markalı forklift ve depo ekipmanlarında satış, kiralama ve servis hizmeti veriyoruz. Güncel model listesi, teknik föy ve fiyat için bize yazın; ihtiyacınıza en uygun modeli birlikte belirleyelim.</p></div>
-{cipler}{blok}<h2 style="margin-top:40px">{e(m["ad"])} ürün grupları</h2><div class="marka-kartlar">{liste}</div></div></section>''' + iletisim_blok()
+{cipler}{blok}{f'<h2 style="margin-top:48px">{e(m["ad"])} model kataloğu</h2><p style="color:var(--gri)">Üretici broşürleri; kapağa tıklayarak teknik föyü indirebilirsiniz.</p>' + katalog_kartlari(m["slug"]) if m["slug"] in KATALOGLAR else ""}<h2 style="margin-top:40px">{e(m["ad"])} ürün grupları</h2><div class="marka-kartlar">{liste}</div></div></section>''' + iletisim_blok()
     return sayfa(f"marka/{m['slug']}", f"{m['ad']} Forklift", f"{m['ad']} dizel ve akülü forklift, istif makinası satış, kiralama ve servis. DELLIFT İstanbul.", govde, "urun")
 
 
@@ -533,13 +551,13 @@ def seri_sayfasi(sr):
 <p style="font-size:1.08rem">{e(sr["giris"])}</p>
 <div class="model-ozet">{"".join(f'<div><b>{e(x)}</b><span>{e(next(r for r in sr["teknik"] if r[0] == "Yük kapasitesi")[2 + i])} kg</span></div>' for i, x in enumerate(modeller))}</div>
 <div class="urun-btn"><a class="btn btn-k" href="{sor}" target="_blank" rel="noopener">{I["wa"]} Fiyat Sor</a><a class="btn btn-s" href="tel:{F["tel_uri"]}">{I["tel"]} {F["tel"]}</a>{f'<a class="btn btn-s" href="/{sr["katalog"]}" target="_blank" rel="noopener">Katalog (PDF)</a>' if sr.get("katalog") else ""}</div>
-<p style="color:var(--gri);font-size:.95rem;margin-top:16px">Satış, kiralama ve servis · 2 yıl / 2.000 saat üretici garantisi · 24 saatte servis ve yedek parça</p>
+<p style="color:var(--gri);font-size:.95rem;margin-top:16px">{e(sr["not"])} · 24 saatte servis ve yedek parça</p>
 </div></div></section>
-<section class="bolum gri"><div class="kap"><div class="bolum-bas"><div><span class="etiket">Öne çıkanlar</span><h2>Neden NMR serisi?</h2></div></div>
+<section class="bolum gri"><div class="kap"><div class="bolum-bas"><div><span class="etiket">Öne çıkanlar</span><h2>{e(sr["one_baslik"])}</h2></div></div>
 <ul class="ozellikler iki-sutun">{one}</ul></div></section>
 <section class="bolum" id="teknik"><div class="kap"><div class="bolum-bas"><div><span class="etiket">Teknik föy</span><h2>Teknik özellikler</h2></div><p>Değerler üretici kataloğundandır.</p></div>
 <div class="tablo-kap"><table class="teknik"><thead><tr><th>Model</th><th class="birim">Birim</th>{ust}</tr></thead><tbody>{tablo}</tbody></table></div></div></section>''' + iletisim_blok()
-    sema = ('<script type="application/ld+json">' + "[" + ",".join('{"@context":"https://schema.org","@type":"Product","name":' + _js(f"{m['ad']} {x} Dizel Forklift") +
+    sema = ('<script type="application/ld+json">' + "[" + ",".join('{"@context":"https://schema.org","@type":"Product","name":' + _js(f"{m['ad']} {x} {k['kisa']} Forklift") +
             ',"brand":{"@type":"Brand","name":' + _js(m["ad"]) + '},"model":' + _js(x) + ',"image":' + _js(F["site"] + f"/{gk}/01.webp") +
             ',"description":' + _js(sr["giris"]) + "}" for x in modeller) + "]</script>")
     return sayfa("urun/" + sr["slug"], f"{sr['ad']} – {' / '.join(modeller)}", f"{sr['ad']} ({' / '.join(modeller)}): {sr['kisa']}. Teknik özellikler, fiyat, satış ve kiralama — DELLIFT İstanbul.", govde, "urun", sema)
