@@ -5,7 +5,7 @@ from datetime import date
 from veri import FIRMA as F, MARKALAR, KATEGORILER, URUNLER, SERILER, SSS, KATALOGLAR
 
 KOK = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "site")
-SURUM = "6"
+SURUM = "7"
 e = html.escape
 
 # ---- ikonlar ----
@@ -471,9 +471,10 @@ def katalog_kartlari(marka, kat_slug=None):
     for _d, slug, model, acik, ks in KATALOGLAR[marka][2]:
         if kat_slug and ks != kat_slug:
             continue
-        out += f'''<div class="kt"><a href="/assets/dosya/{marka}/{slug}.pdf" target="_blank" rel="noopener"><img src="/assets/img/katalog/{marka}/{slug}.webp" alt="{e(m)} {e(model)} kataloğu" loading="lazy"></a>
-<div class="ic"><span class="tur">{e(kat(ks)["kisa"])}</span><b>{e(m)} {e(model)}</b><p>{e(acik)}</p>
-<div class="bag"><a href="/assets/dosya/{marka}/{slug}.pdf" target="_blank" rel="noopener">Katalog (PDF{", İng." if dil == "EN" else ""})</a><a class="wa" href="{wa_link(f"Merhaba, {m} {model} için fiyat almak istiyorum.")}" target="_blank" rel="noopener">Fiyat sor →</a></div></div></div>'''
+        sf = f"/katalog/{marka}/{slug}"
+        out += f'''<div class="kt"><a href="{sf}"><img src="/assets/img/katalog/{marka}/{slug}.webp" alt="{e(m)} {e(model)} kataloğu" loading="lazy"></a>
+<div class="ic"><span class="tur">{e(kat(ks)["kisa"])}</span><b><a href="{sf}" style="text-decoration:none">{e(m)} {e(model)}</a></b><p>{e(acik)}</p>
+<div class="bag"><a href="{sf}">Kataloğu incele{" (İng.)" if dil == "EN" else ""}</a><a class="wa" href="{wa_link(f"Merhaba, {m} {model} için fiyat almak istiyorum.")}" target="_blank" rel="noopener">Fiyat sor →</a></div></div></div>'''
     return f'<div class="katalog">{out}</div>' if out else ""
 
 
@@ -495,7 +496,7 @@ def kategori_sayfasi(k):
     kt = "".join(f'<h3 style="margin:32px 0 0;font-size:1.5rem">{e(next(m["ad"] for m in MARKALAR if m["slug"] == x))}</h3>' + c
                  for x in KATALOGLAR if (c := katalog_kartlari(x, k["slug"])))
     if kt:
-        blok += f'<h2 style="margin-top:48px">Model kataloğu</h2><p style="color:var(--gri)">Üretici broşürleri; teknik föyü indirip fiyat için bize yazabilirsiniz.</p>{kt}'
+        blok += f'<h2 style="margin-top:48px">Model kataloğu</h2><p style="color:var(--gri)">Üretici broşürleri; modele tıklayarak teknik föyü inceleyip fiyat için bize yazabilirsiniz.</p>{kt}'
     if markalar:
         blok += f'<h2 style="margin-top:48px">Markalar</h2><p style="color:var(--gri)">Güncel model, stok ve teknik föy için markayı seçip bize yazın.</p>{marka_kartlari(markalar, k["ad"])}'
     else:
@@ -529,7 +530,7 @@ def marka_sayfasi(m):
     cipler = '<div class="cipler">' + "".join(f'<a href="/marka/{x["slug"]}"{" aria-current=page" if x["slug"] == m["slug"] else ""}>{e(x["ad"])}</a>' for x in MARKALAR) + "</div>"
     govde = sayfa_bas(e(m["ad"]), e(m["ozet"]), [("Ürünler", "/urunler"), (m["ad"], None)]) + f'''<section class="bolum"><div class="kap">
 <div class="metin"><p style="font-size:1.12rem">{e(m["ad"])} markalı forklift ve depo ekipmanlarında satış, kiralama ve servis hizmeti veriyoruz. Güncel model listesi, teknik föy ve fiyat için bize yazın; ihtiyacınıza en uygun modeli birlikte belirleyelim.</p></div>
-{cipler}{blok}{f'<h2 style="margin-top:48px">{e(m["ad"])} model kataloğu</h2><p style="color:var(--gri)">Üretici broşürleri; kapağa tıklayarak teknik föyü indirebilirsiniz.</p>' + katalog_kartlari(m["slug"]) if m["slug"] in KATALOGLAR else ""}<h2 style="margin-top:40px">{e(m["ad"])} ürün grupları</h2><div class="marka-kartlar">{liste}</div></div></section>''' + iletisim_blok()
+{cipler}{blok}{f'<h2 style="margin-top:48px">{e(m["ad"])} model kataloğu</h2><p style="color:var(--gri)">Üretici broşürleri; modele tıklayarak teknik föyü inceleyebilirsiniz.</p>' + katalog_kartlari(m["slug"]) if m["slug"] in KATALOGLAR else ""}<h2 style="margin-top:40px">{e(m["ad"])} ürün grupları</h2><div class="marka-kartlar">{liste}</div></div></section>''' + iletisim_blok()
     return sayfa(f"marka/{m['slug']}", f"{m['ad']} Forklift", f"{m['ad']} dizel ve akülü forklift, istif makinası satış, kiralama ve servis. DELLIFT İstanbul.", govde, "urun")
 
 
@@ -564,6 +565,28 @@ def seri_sayfasi(sr):
     return sayfa("urun/" + sr["slug"], f"{sr['ad']} – {' / '.join(modeller)}", f"{sr['ad']} ({' / '.join(modeller)}): {sr['kisa']}. Teknik özellikler, fiyat, satış ve kiralama — DELLIFT İstanbul.", govde, "urun", sema)
 
 
+PDFJS = "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/"
+
+
+def katalog_sayfasi(marka, kayit, dil):
+    """Üretici broşürünü site içinde gösterir (pdf.js); ziyaretçi siteden çıkmadan fiyat sorabilir."""
+    _d, slug, model, acik, ks = kayit
+    m = next(x for x in MARKALAR if x["slug"] == marka)
+    k = kat(ks)
+    pdf = f"/assets/dosya/{marka}/{slug}.pdf"
+    ad = f"{m['ad']} {model}"
+    sor = wa_link(f"Merhaba, {ad} için fiyat almak istiyorum.")
+    govde = sayfa_bas(e(ad), e(acik), [("Ürünler", "/urunler"), (k["ad"], "/" + k["slug"]), (m["ad"], "/marka/" + marka), (model, None)]) + f'''
+<section class="bolum" style="padding-top:40px"><div class="kap">
+<div class="katalog-bas"><div><span class="etiket">{e(m["ad"])} · {e(k["kisa"])}</span><h2>{e(ad)} teknik föyü</h2>
+<p style="color:var(--gri);margin:0">Üretici kataloğu{" (İngilizce)" if dil == "EN" else ""}. Stok, fiyat ve size uygun konfigürasyon için bize yazın.</p></div>
+<div class="urun-btn"><a class="btn btn-k" href="{sor}" target="_blank" rel="noopener">{I["wa"]} Fiyat Sor</a><a class="btn btn-s" href="tel:{F["tel_uri"]}">{I["tel"]} Ara</a><a class="btn btn-s" href="{pdf}" download>PDF İndir</a></div></div>
+<div class="pdf-gorunum" id="pdf-gorunum" data-js="{PDFJS}"><a class="pdf-kaynak" href="{pdf}"></a><p class="pdf-durum">Katalog yükleniyor…</p></div>
+</div></section>
+<script src="{PDFJS}build/pdf.min.js" defer></script>''' + iletisim_blok()
+    return sayfa(f"katalog/{marka}/{slug}", f"{ad} – {acik}", f"{ad}: {acik}. Teknik föy, fiyat, satış ve kiralama — DELLIFT İstanbul.", govde, "urun")
+
+
 def iletisim():
     govde = sayfa_bas("İletişim", "Bize telefonla, WhatsApp'tan ya da formla ulaşın; aynı gün dönüş yapalım.", [("İletişim", None)]) + iletisim_blok(gri=False)
     return sayfa("iletisim", "İletişim", f"DELLIFT iletişim: {F['tel']}, {F['eposta']}. {F['adres']}.", govde, "iletisim")
@@ -591,6 +614,7 @@ def main():
     sayfalar += [yaz(k["slug"], kategori_sayfasi(k)) for k in KATEGORILER]
     sayfalar += [yaz(f"marka/{m['slug']}", marka_sayfasi(m)) for m in MARKALAR]
     sayfalar += [yaz(f"urun/{sr['slug']}", seri_sayfasi(sr)) for sr in SERILER]
+    sayfalar += [yaz(f"katalog/{mk}/{x[1]}", katalog_sayfasi(mk, x, dil)) for mk, (_k, dil, liste) in KATALOGLAR.items() for x in liste]
     yaz("404", bulunamadi())
     bugun = date.today().isoformat()
     urls = "".join(f"<url><loc>{F['site']}{'/' if s == 'index' else '/' + s}</loc><lastmod>{bugun}</lastmod></url>" for s in sayfalar)

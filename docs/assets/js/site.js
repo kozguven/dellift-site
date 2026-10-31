@@ -33,4 +33,24 @@
   if(gb){[].forEach.call(document.querySelectorAll('.galeri-kucuk button'),function(b){b.addEventListener('click',function(){
     var src=b.querySelector('img').getAttribute('src').replace('-800.webp','.webp');gb.src=src;gb.parentNode.href=src;
     [].forEach.call(document.querySelectorAll('.galeri-kucuk button'),function(x){x.classList.toggle('aktif',x===b)});});});}
+
+  // katalog sayfası: üretici PDF'ini sayfa içinde çiz (pdf.js); olmazsa indirme bağlantısı göster
+  var pg=document.getElementById('pdf-gorunum');
+  if(pg){
+    var url=pg.querySelector('.pdf-kaynak').href,durum=pg.querySelector('.pdf-durum'),js=pg.getAttribute('data-js');
+    var hata=function(){durum.innerHTML='Katalog burada görüntülenemedi. <a href="'+url+'" target="_blank" rel="noopener">PDF olarak açın</a>.';};
+    if(!window.pdfjsLib){hata();}else{
+      pdfjsLib.GlobalWorkerOptions.workerSrc=js+'build/pdf.worker.min.js';
+      pdfjsLib.getDocument({url:url,cMapUrl:js+'cmaps/',cMapPacked:true,standardFontDataUrl:js+'standard_fonts/'}).promise.then(function(doc){
+        durum.style.display='none';
+        var sira=Promise.resolve(),dpr=Math.min(window.devicePixelRatio||1,2);
+        for(var n=1;n<=doc.numPages;n++)(function(n){sira=sira.then(function(){return doc.getPage(n).then(function(p){
+          var gen=pg.clientWidth||800,v=p.getViewport({scale:gen/p.getViewport({scale:1}).width*dpr});
+          var c=document.createElement('canvas');c.width=Math.floor(v.width);c.height=Math.floor(v.height);
+          c.setAttribute('aria-label','Katalog sayfa '+n);pg.appendChild(c);
+          return p.render({canvasContext:c.getContext('2d'),viewport:v}).promise;});});})(n);
+        return sira;
+      }).catch(hata);
+    }
+  }
 })();
