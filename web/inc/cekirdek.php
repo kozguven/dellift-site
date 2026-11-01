@@ -6,7 +6,7 @@ declare(strict_types=1);
 if (!function_exists('str_starts_with')) { function str_starts_with(string $h, string $n): bool { return $n === '' || strncmp($h, $n, strlen($n)) === 0; } }
 if (!function_exists('str_contains')) { function str_contains(string $h, string $n): bool { return $n === '' || strpos($h, $n) !== false; } }
 
-const SURUM = '9';
+const SURUM = '10';
 define('KOK', dirname(__DIR__));
 define('VERI', KOK . '/veri');
 const PDFJS = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/';

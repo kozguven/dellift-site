@@ -48,82 +48,138 @@ function secenek_marka(): array { $o = []; foreach (markalar() as $m) { $o[$m['s
 function secenek_kat(): array { $o = []; foreach (kategoriler() as $k) { $o[$k['slug']] = $k['ad']; } return $o; }
 function secenek_seri(): array { $o = ['' => '— detay sayfası yok —']; foreach (veri()['seriler'] ?? [] as $x) { $o[$x['slug']] = $x['ad']; } return $o; }
 
+function rozet(string $metin, string $tur = ''): string { return '<span class="rozet-k ' . $tur . '">' . e($metin) . '</span>'; }
+function durum_rozet(array $x): string { return !empty($x['aktif']) ? rozet('Yayında', 'yesil') : rozet('Gizli', 'gri'); }
+function kisalt(string $s, int $n = 90): string { $s = trim(preg_replace('~\s+~u', ' ', strip_tags($s))); return mb_strlen($s) > $n ? mb_substr($s, 0, $n - 1) . '…' : $s; }
+function sayac(string $alan, string $deger): array {
+    $v = veri(); $u = 0; $k = 0;
+    foreach ($v['urunler'] ?? [] as $x) { if (($x[$alan] ?? '') === $deger) $u++; }
+    foreach ($v['kataloglar'] ?? [] as $x) { if (($x[$alan] ?? '') === $deger) $k++; }
+    return [$u, $k];
+}
+function seri_ad(string $slug): string { foreach (veri()['seriler'] ?? [] as $x) { if ($x['slug'] === $slug) return $x['ad']; } return ''; }
+
 $KOL = [
-    'slaytlar' => ['ad' => 'Ana sayfa banner', 'tekil' => 'banner', 'goster' => fn($x) => strip_tags(str_replace('*', '', $x['baslik'])), 'resim' => fn($x) => $x['gorsel'] ?? '',
-        'aciklama' => 'Ana sayfanın en üstünde dönen büyük görseller. Sırayı oklarla değiştirebilirsiniz.',
+    'slaytlar' => ['ad' => 'Ana sayfa banner', 'tekil' => 'banner', 'goster' => fn($x) => str_replace('*', '', $x['baslik']), 'resim' => fn($x) => $x['gorsel'] ?? '',
+        'ozet' => fn($x) => kisalt($x['metin'] ?? ''),
+        'sutunlar' => ['Düğmeler' => fn($x) => e(trim(($x['b1_yazi'] ?? '') . (($x['b2_yazi'] ?? '') !== '' ? ' · ' . $x['b2_yazi'] : '')) ?: '—')],
+        'nerede' => fn($x) => [['Ana sayfa – en üstteki dönen görseller', '/']],
+        'aciklama' => 'Ana sayfanın en üstünde sırayla dönen büyük görseller. Listedeki sıra, sitedeki gösterim sırasıdır (▲▼ ile değiştirin). İlk banner sayfa açılınca görünen ilk görseldir.',
         'alanlar' => [
-            ['gorsel', 'Görsel', 'gorsel', 'gen' => 1920, 'klasor' => 'banner', 'zorunlu' => true, 'ipucu' => 'Yatay, en az 1600 px genişlikte bir fotoğraf seçin. Yazı solda durur; görselin sağ tarafı daha görünür kalır.'],
-            ['baslik', 'Başlık', 'metin', 'zorunlu' => true, 'ipucu' => 'Kırmızı görünmesini istediğiniz kısmı *yıldız* içine alın. Örnek: İhtiyacınız kadar *kiralayın*'],
-            ['metin', 'Alt yazı', 'yazi'],
-            ['b1_yazi', '1. düğme (kırmızı) yazısı', 'metin'], ['b1_link', '1. düğme bağlantısı', 'metin', 'ipucu' => 'Site içi sayfa: /iletisim#teklif · WhatsApp: wa:Merhaba, bilgi almak istiyorum. · Telefon: tel'],
-            ['b2_yazi', '2. düğme yazısı', 'metin'], ['b2_link', '2. düğme bağlantısı', 'metin'],
+            ['_', 'Görsel', 'baslik', 'ipucu' => 'Arka planda tam genişlikte görünen fotoğraf.'],
+            ['gorsel', 'Banner görseli', 'gorsel', 'gen' => 1920, 'klasor' => 'banner', 'zorunlu' => true, 'ipucu' => 'Yatay, en az 1600 piksel genişlikte bir fotoğraf seçin. Yazılar sol tarafta durur; makine görselin sağ tarafında olursa daha iyi görünür.'],
+            ['_', 'Yazılar', 'baslik', 'ipucu' => 'Görselin üzerinde, sol tarafta görünen büyük başlık ve altındaki açıklama.'],
+            ['baslik', 'Büyük başlık', 'metin', 'zorunlu' => true, 'ipucu' => 'Kırmızı renkte görünmesini istediğiniz kelimeleri *yıldız* içine alın. Örnek: İhtiyacınız kadar *kiralayın*'],
+            ['metin', 'Başlığın altındaki açıklama', 'yazi', 'ipucu' => '1–2 cümle yeterli.'],
+            ['_', 'Düğmeler', 'baslik', 'ipucu' => 'Yazının altında iki düğme görünür: soldaki kırmızı, sağdaki şeffaf. Yazısı boş bırakılan düğme gösterilmez.'],
+            ['b1_yazi', 'Kırmızı düğmenin yazısı', 'metin', 'ipucu' => 'Örnek: Teklif Al'],
+            ['b1_link', 'Kırmızı düğme nereye gitsin?', 'metin', 'ipucu' => 'Site içi sayfa: /iletisim#teklif  ·  WhatsApp mesajı: wa:Merhaba, bilgi almak istiyorum.  ·  Telefonla arama: tel'],
+            ['b2_yazi', 'Şeffaf düğmenin yazısı', 'metin', 'ipucu' => 'Örnek: Satış'],
+            ['b2_link', 'Şeffaf düğme nereye gitsin?', 'metin', 'ipucu' => 'Örnek: /forklift-satis'],
         ]],
-    'urunler' => ['ad' => 'Ürünler', 'tekil' => 'ürün', 'goster' => fn($x) => $x['ad'], 'alt' => fn($x) => marka_ad($x['marka']) . ' · ' . (kat($x['kat'])['ad'] ?? '') . (!empty($x['anasayfa']) ? ' · ana sayfada' : '') . (empty($x['aktif']) ? ' · YAYINDA DEĞİL' : ''), 'resim' => fn($x) => $x['gorsel'] ?? '',
-        'aciklama' => 'Kategori, marka ve ana sayfada görünen ürün kartları. Kartın "Teknik Özellikler" düğmesi seçtiğiniz detay sayfasına gider.',
+    'urunler' => ['ad' => 'Ürünler', 'tekil' => 'ürün', 'goster' => fn($x) => $x['ad'], 'resim' => fn($x) => $x['gorsel'] ?? '',
+        'ozet' => fn($x) => kisalt($x['aciklama'] ?? ''),
+        'sutunlar' => ['Marka' => fn($x) => e(marka_ad($x['marka'])), 'Kategori' => fn($x) => e(kat($x['kat'])['ad'] ?? '—'), 'Model' => fn($x) => e($x['model'] ?: '—'),
+            'Detay sayfası' => fn($x) => ($x['detay'] ?? '') !== '' ? e(seri_ad($x['detay'])) : '<span class="soluk">yok</span>',
+            'Durum' => fn($x) => durum_rozet($x) . (!empty($x['anasayfa']) ? rozet('Ana sayfada', 'kirmizi') : '')],
+        'nerede' => fn($x) => array_merge([[(kat($x['kat'])['ad'] ?? '') . ' kategori sayfası', '/' . $x['kat']], [marka_ad($x['marka']) . ' marka sayfası', '/marka/' . $x['marka']]],
+            !empty($x['anasayfa']) ? [['Ana sayfa – Öne çıkan modeller', '/']] : [], ($x['detay'] ?? '') !== '' ? [['"Teknik Özellikler" düğmesi → ' . seri_ad($x['detay']), '/urun/' . $x['detay']]] : []),
+        'aciklama' => 'Sitede görselli kart olarak gösterilen ürünler. Kart; seçtiğiniz kategori ve marka sayfasında, işaretlerseniz ana sayfada da görünür. Galerili, teknik tablolu ayrıntılı sayfa için "Ürün detay sayfaları" bölümünü kullanın ve kartta bağlayın.',
         'alanlar' => [
-            ['ad', 'Ürün adı', 'metin', 'zorunlu' => true, 'ipucu' => 'Örnek: Niğmer 3 Ton Dizel Forklift'],
-            ['model', 'Model', 'metin', 'ipucu' => 'Örnek: NMR 30D'],
-            ['marka', 'Marka', 'secim', 'secenek' => 'secenek_marka'],
-            ['kat', 'Kategori', 'secim', 'secenek' => 'secenek_kat'],
-            ['gorsel', 'Ürün görseli', 'gorsel', 'gen' => 1000, 'klasor' => 'urun', 'zorunlu' => true],
-            ['aciklama', 'Kısa açıklama', 'yazi'],
-            ['ozellik', 'Kart üzerindeki özellikler', 'satirlar', 'ipucu' => 'Her satıra bir özellik: Özellik | Değer. Örnek: Kapasite | 3.000 kg'],
-            ['detay', 'Detay sayfası', 'secim', 'secenek' => 'secenek_seri', 'ipucu' => 'Galeri ve teknik tablolu detay sayfası "Ürün detay sayfaları" bölümünden eklenir.'],
-            ['anasayfa', 'Ana sayfada "Öne çıkan modeller" içinde göster', 'onay'],
-            ['aktif', 'Sitede yayında', 'onay', 'varsayilan' => true],
+            ['_', 'Temel bilgiler', 'baslik'],
+            ['ad', 'Ürün adı', 'metin', 'zorunlu' => true, 'ipucu' => 'Kartın başlığı. Örnek: Niğmer 3 Ton Dizel Forklift'],
+            ['model', 'Model kodu', 'metin', 'ipucu' => 'Kartın üstünde marka ile birlikte küçük yazılır. Örnek: NMR 30D'],
+            ['marka', 'Marka', 'secim', 'secenek' => 'secenek_marka', 'ipucu' => 'Ürün bu markanın sayfasında listelenir. Yeni marka "Markalar" bölümünden eklenir.'],
+            ['kat', 'Kategori', 'secim', 'secenek' => 'secenek_kat', 'ipucu' => 'Ürün bu kategorinin sayfasında listelenir.'],
+            ['_', 'Kart içeriği', 'baslik', 'ipucu' => 'Ürün kartında görünen görsel, açıklama ve özellik tablosu.'],
+            ['gorsel', 'Ürün görseli', 'gorsel', 'gen' => 1000, 'klasor' => 'urun', 'zorunlu' => true, 'ipucu' => 'Kartın üstündeki fotoğraf. Yatay fotoğraf daha iyi durur.'],
+            ['aciklama', 'Kısa açıklama', 'yazi', 'ipucu' => 'Kartta başlığın altında görünen 1–2 cümle.'],
+            ['ozellik', 'Kart üzerindeki özellikler', 'satirlar', 'sutunlar' => ['Özellik adı', 'Değeri'], 'ornek' => ['Kapasite', '3.000 kg'], 'ipucu' => 'Kartta küçük tablo olarak görünür. 3–4 satır idealdir.'],
+            ['_', 'Bağlantı ve görünürlük', 'baslik'],
+            ['detay', 'Detay sayfası', 'secim', 'secenek' => 'secenek_seri', 'ipucu' => 'Seçerseniz kartta "Teknik Özellikler" düğmesi çıkar ve bu sayfaya gider. Detay sayfaları "Ürün detay sayfaları" bölümünden eklenir.'],
+            ['anasayfa', 'Ana sayfadaki "Öne çıkan modeller" bölümünde de göster', 'onay'],
+            ['aktif', 'Sitede yayında (işareti kaldırırsanız ürün silinmeden gizlenir)', 'onay', 'varsayilan' => true],
         ]],
-    'seriler' => ['ad' => 'Ürün detay sayfaları', 'tekil' => 'detay sayfası', 'goster' => fn($x) => $x['ad'], 'alt' => fn($x) => '/urun/' . $x['slug'] . (empty($x['aktif']) ? ' · YAYINDA DEĞİL' : ''), 'resim' => fn($x) => !empty($x['gorseller'][0]) ? $x['gorseller'][0] . '-800.webp' : '', 'url' => fn($x) => '/urun/' . $x['slug'],
-        'aciklama' => 'Galeri, öne çıkan özellikler ve teknik tablo içeren ürün sayfaları (/urun/…). Bir sayfada birden fazla model (ör. 3 ve 3,5 ton) yan yana gösterilebilir.',
+    'seriler' => ['ad' => 'Ürün detay sayfaları', 'tekil' => 'detay sayfası', 'goster' => fn($x) => $x['ad'], 'resim' => fn($x) => !empty($x['gorseller'][0]) ? $x['gorseller'][0] . '-800.webp' : '', 'url' => fn($x) => '/urun/' . $x['slug'],
+        'ozet' => fn($x) => kisalt($x['kisa'] ?? ''),
+        'sutunlar' => ['Marka' => fn($x) => e(marka_ad($x['marka'])), 'Modeller' => fn($x) => e(implode(', ', $x['modeller'] ?? []) ?: '—'),
+            'İçerik' => fn($x) => e(count($x['gorseller'] ?? []) . ' görsel · ' . count(array_filter($x['teknik'] ?? [], fn($r) => ($r[1] ?? null) !== null)) . ' teknik satır'),
+            'Durum' => fn($x) => durum_rozet($x)],
+        'nerede' => fn($x) => array_merge([['Detay sayfası', '/urun/' . $x['slug']]],
+            array_map(fn($u) => ['Bağlı ürün kartı: ' . $u['ad'], '/' . $u['kat']], array_values(array_filter(veri()['urunler'] ?? [], fn($u) => ($u['detay'] ?? '') === $x['slug'])))),
+        'aciklama' => 'Galeri, öne çıkan özellikler ve teknik tablo içeren ayrıntılı ürün sayfaları (adres: /urun/…). Bir sayfada aynı serinin birden fazla modeli (ör. 3 ton ve 3,5 ton) yan yana karşılaştırılır. Sayfanın görünmesi için bir ürün kartında "Detay sayfası" olarak seçin.',
         'alanlar' => [
-            ['ad', 'Sayfa başlığı', 'metin', 'zorunlu' => true, 'ipucu' => 'Örnek: Niğmer NMR Serisi Dizel Forklift'],
+            ['_', 'Temel bilgiler', 'baslik'],
+            ['ad', 'Sayfa başlığı', 'metin', 'zorunlu' => true, 'ipucu' => 'Sayfanın en büyük başlığı. Örnek: Niğmer NMR Serisi Dizel Forklift'],
             ['slug', 'Sayfa adresi', 'slug', 'kaynak' => 'ad', 'onek' => '/urun/'],
-            ['kisa', 'Kısa tanım (başlığın altında)', 'metin', 'ipucu' => 'Örnek: 3 ve 3,5 ton · Euro V dizel · yerli üretim'],
+            ['kisa', 'Başlığın altındaki kısa tanım', 'metin', 'ipucu' => 'Örnek: 3 ve 3,5 ton · Euro V dizel · yerli üretim'],
             ['marka', 'Marka', 'secim', 'secenek' => 'secenek_marka'],
-            ['kat', 'Kategori', 'secim', 'secenek' => 'secenek_kat'],
-            ['giris', 'Tanıtım metni', 'yazi', 'satir' => 6],
-            ['gorseller', 'Galeri görselleri', 'galeri', 'klasor' => 'urun', 'ipucu' => 'İlk görsel büyük gösterilir. Birden fazla görseli aynı anda seçebilirsiniz.'],
-            ['modeller', 'Modeller', 'liste', 'ipucu' => 'Her satıra bir model. Teknik tablodaki değer sütunları bu sırayla eşleşir.'],
-            ['one_baslik', 'Öne çıkanlar başlığı', 'metin', 'varsayilan' => 'Öne çıkan özellikler'],
-            ['one_cikan', 'Öne çıkan özellikler', 'satirlar', 'satir' => 8, 'ipucu' => 'Her satıra: Başlık | Açıklama'],
-            ['teknik', 'Teknik özellikler tablosu', 'teknik', 'satir' => 16, 'ipucu' => 'Her satıra: Özellik | Birim | 1. model değeri | 2. model değeri … Ara başlık için satırı ## ile başlatın (## Ölçüler). Kapasite özetinin görünmesi için bir satırın adı "Yük kapasitesi" olmalı.'],
-            ['katalog', 'Katalog PDF', 'pdf', 'klasor' => 'katalog'],
-            ['not', 'Alt not', 'metin', 'ipucu' => 'Örnek: 2 yıl / 2.000 saat üretici garantisi'],
-            ['aktif', 'Sitede yayında', 'onay', 'varsayilan' => true],
+            ['kat', 'Kategori', 'secim', 'secenek' => 'secenek_kat', 'ipucu' => 'Sayfanın üstündeki yol bağlantısında (Ürünler / Kategori / Marka) kullanılır.'],
+            ['giris', 'Tanıtım metni', 'yazi', 'satir' => 6, 'ipucu' => 'Galerinin yanında görünen paragraf.'],
+            ['_', 'Galeri', 'baslik', 'ipucu' => 'Sayfanın solundaki büyük fotoğraf ve altındaki küçük resimler.'],
+            ['gorseller', 'Galeri görselleri', 'galeri', 'klasor' => 'urun', 'ipucu' => 'Kırmızı çerçeveli ilk görsel büyük gösterilir. Sürükleyerek veya ◀ ile sıralayın, ✕ ile kaldırın. Birden fazla dosyayı aynı anda seçebilirsiniz.'],
+            ['_', 'Modeller', 'baslik', 'ipucu' => 'Bu sayfada anlatılan modeller. Teknik tablonun sütunları bu modellerden oluşur.'],
+            ['modeller', 'Model adları', 'liste', 'sutun' => 'Model adı', 'ornek' => 'NMR 30D', 'ipucu' => 'Sıra, teknik tablodaki sütun sırasıdır.'],
+            ['_', 'Öne çıkan özellikler', 'baslik', 'ipucu' => 'Galerinin altındaki gri bölümde, ikonlu kutular hâlinde görünür.'],
+            ['one_baslik', 'Bölüm başlığı', 'metin', 'varsayilan' => 'Öne çıkan özellikler', 'ipucu' => 'Örnek: Neden NMR serisi?'],
+            ['one_cikan', 'Özellikler', 'satirlar', 'sutunlar' => ['Kısa başlık', 'Açıklama'], 'ornek' => ['Euro V dizel motor', '44,8 kW güç, 210 Nm tork']],
+            ['_', 'Teknik özellikler tablosu', 'baslik', 'ipucu' => 'Sayfanın altındaki karşılaştırmalı tablo. Değerler üretici kataloğundan girilir. "Yük kapasitesi" adlı satır, sayfanın üstündeki kapasite kutularında da gösterilir.'],
+            ['teknik', 'Tablo satırları', 'teknik', 'ipucu' => '"+ Ara başlık" ile Genel, Ölçüler, Motor gibi bölümler oluşturabilirsiniz. Model sütunları yukarıdaki model adlarından otomatik gelir.'],
+            ['_', 'Katalog ve not', 'baslik'],
+            ['katalog', 'Katalog PDF', 'pdf', 'klasor' => 'katalog', 'ipucu' => 'Yüklenirse sayfada "Katalog (PDF)" düğmesi çıkar.'],
+            ['not', 'Düğmelerin altındaki küçük not', 'metin', 'ipucu' => 'Örnek: 2 yıl / 2.000 saat üretici garantisi'],
+            ['aktif', 'Sitede yayında (işareti kaldırırsanız sayfa silinmeden gizlenir)', 'onay', 'varsayilan' => true],
         ]],
-    'kataloglar' => ['ad' => 'Kataloglar', 'tekil' => 'katalog', 'goster' => fn($x) => marka_ad($x['marka']) . ' ' . $x['model'], 'alt' => fn($x) => (kat($x['kat'])['ad'] ?? '') . ' · ' . $x['aciklama'] . (empty($x['aktif']) ? ' · YAYINDA DEĞİL' : ''), 'resim' => fn($x) => $x['kapak'] ?? '', 'url' => fn($x) => "/katalog/{$x['marka']}/{$x['slug']}", 'filtre' => 'marka',
-        'aciklama' => 'Üretici broşürleri. Her katalog kendi sayfasında (PDF sayfa içinde) gösterilir ve ilgili kategori ile marka sayfalarında listelenir.',
+    'kataloglar' => ['ad' => 'Kataloglar', 'tekil' => 'katalog', 'goster' => fn($x) => marka_ad($x['marka']) . ' ' . $x['model'], 'resim' => fn($x) => $x['kapak'] ?? '', 'url' => fn($x) => "/katalog/{$x['marka']}/{$x['slug']}", 'filtre' => 'marka',
+        'ozet' => fn($x) => kisalt($x['aciklama'] ?? ''),
+        'sutunlar' => ['Marka' => fn($x) => e(marka_ad($x['marka'])), 'Kategori' => fn($x) => e(kat($x['kat'])['ad'] ?? '—'), 'Dil' => fn($x) => ($x['dil'] ?? '') === 'EN' ? 'İngilizce' : 'Türkçe',
+            'Durum' => fn($x) => durum_rozet($x)],
+        'nerede' => fn($x) => [['Katalog sayfası (PDF sayfa içinde açılır)', "/katalog/{$x['marka']}/{$x['slug']}"], [(kat($x['kat'])['ad'] ?? '') . ' kategori sayfası – Model kataloğu', '/' . $x['kat'] . '#katalog'], [marka_ad($x['marka']) . ' marka sayfası', '/marka/' . $x['marka'] . '#katalog']],
+        'aciklama' => 'Üretici broşürleri (PDF). Her katalog kendi sayfasında açılır; ayrıca seçtiğiniz kategori ve marka sayfasında kapak görseliyle listelenir. Ziyaretçi buradan WhatsApp ile fiyat sorabilir.',
         'alanlar' => [
+            ['_', 'Katalog bilgileri', 'baslik'],
             ['marka', 'Marka', 'secim', 'secenek' => 'secenek_marka'],
-            ['kat', 'Kategori', 'secim', 'secenek' => 'secenek_kat'],
-            ['model', 'Model', 'metin', 'zorunlu' => true, 'ipucu' => 'Örnek: CPD15/20L1'],
+            ['kat', 'Kategori', 'secim', 'secenek' => 'secenek_kat', 'ipucu' => 'Katalog bu kategori sayfasının "Model kataloğu" bölümünde listelenir.'],
+            ['model', 'Model adı', 'metin', 'zorunlu' => true, 'ipucu' => 'Marka adıyla birlikte başlık olur. Örnek: CPD15/20L1 → "EP CPD15/20L1"'],
             ['slug', 'Sayfa adresi', 'slug', 'kaynak' => 'model', 'onek' => '/katalog/<marka>/'],
-            ['aciklama', 'Kısa açıklama', 'metin', 'zorunlu' => true, 'ipucu' => 'Örnek: 1,5–2 ton lityum akülü forklift'],
-            ['dil', 'Katalog dili', 'secim', 'secenek' => fn() => ['TR' => 'Türkçe', 'EN' => 'İngilizce']],
-            ['pdf', 'Katalog PDF', 'pdf', 'klasor' => 'katalog', 'zorunlu' => true, 'kapak' => true],
-            ['kapak', 'Kapak görseli', 'gorsel', 'gen' => 700, 'klasor' => 'katalog', 'ipucu' => 'Boş bırakırsanız PDF\'in ilk sayfası otomatik kapak yapılır.'],
-            ['aktif', 'Sitede yayında', 'onay', 'varsayilan' => true],
+            ['aciklama', 'Kısa açıklama', 'metin', 'zorunlu' => true, 'ipucu' => 'Kapak görselinin altında görünür. Örnek: 1,5–2 ton lityum akülü forklift'],
+            ['dil', 'Katalog dili', 'secim', 'secenek' => fn() => ['TR' => 'Türkçe', 'EN' => 'İngilizce'], 'ipucu' => 'İngilizce kataloglarda "(İng.)" ibaresi gösterilir.'],
+            ['_', 'Dosyalar', 'baslik'],
+            ['pdf', 'Katalog PDF dosyası', 'pdf', 'klasor' => 'katalog', 'zorunlu' => true, 'kapak' => true],
+            ['kapak', 'Kapak görseli', 'gorsel', 'gen' => 700, 'klasor' => 'katalog', 'ipucu' => 'Boş bırakırsanız PDF\'in ilk sayfası otomatik olarak kapak yapılır.'],
+            ['aktif', 'Sitede yayında (işareti kaldırırsanız katalog silinmeden gizlenir)', 'onay', 'varsayilan' => true],
         ]],
-    'markalar' => ['ad' => 'Markalar', 'tekil' => 'marka', 'goster' => fn($x) => $x['ad'], 'alt' => fn($x) => '/marka/' . $x['slug'], 'url' => fn($x) => '/marka/' . $x['slug'],
-        'aciklama' => 'Menüde, ana sayfada ve kategori sayfalarında görünen markalar.',
+    'markalar' => ['ad' => 'Markalar', 'tekil' => 'marka', 'goster' => fn($x) => $x['ad'], 'url' => fn($x) => '/marka/' . $x['slug'],
+        'ozet' => fn($x) => kisalt($x['ozet'] ?? ''),
+        'sutunlar' => ['Kategoriler' => fn($x) => e(implode(', ', array_map(fn($s) => kat($s)['kisa'] ?? $s, $x['kat'] ?? [])) ?: '—'),
+            'Ürün / katalog' => function ($x) { [$u, $k] = sayac('marka', $x['slug']); return "$u ürün · $k katalog"; }],
+        'nerede' => fn($x) => [['Marka sayfası', '/marka/' . $x['slug']], ['Üst menü → Ürünler → Markalar', '/'], ['Ana sayfa ve Ürünler sayfası – marka şeridi', '/urunler']],
+        'aciklama' => 'Çalışılan markalar. Üst menüde, ana sayfadaki marka şeridinde ve kategori sayfalarındaki "Markalar" bölümünde bu sırayla görünür. Ürün veya katalogda kullanılan bir marka silinemez.',
         'alanlar' => [
             ['ad', 'Marka adı', 'metin', 'zorunlu' => true],
             ['slug', 'Sayfa adresi', 'slug', 'kaynak' => 'ad', 'onek' => '/marka/'],
-            ['ozet', 'Kısa tanıtım', 'yazi'],
-            ['kat', 'Bulunduğu kategoriler', 'coklu', 'secenek' => 'secenek_kat'],
+            ['ozet', 'Kısa tanıtım', 'yazi', 'ipucu' => 'Marka sayfasının başında ve kategori sayfalarındaki marka kutusunda görünür.'],
+            ['kat', 'Hangi kategorilerde ürünü var?', 'coklu', 'secenek' => 'secenek_kat', 'ipucu' => 'İşaretlenen kategorilerin sayfasında bu marka "Markalar" bölümünde gösterilir.'],
         ]],
-    'kategoriler' => ['ad' => 'Kategoriler', 'tekil' => 'kategori', 'goster' => fn($x) => $x['ad'], 'alt' => fn($x) => '/' . $x['slug'], 'url' => fn($x) => '/' . $x['slug'], 'resim' => fn($x) => $x['gorsel'] ?? '',
-        'aciklama' => 'Ürün kategorileri. Menüde ve ürünler sayfasında bu sırayla görünür.',
+    'kategoriler' => ['ad' => 'Kategoriler', 'tekil' => 'kategori', 'goster' => fn($x) => $x['ad'], 'url' => fn($x) => '/' . $x['slug'], 'resim' => fn($x) => $x['gorsel'] ?? '',
+        'ozet' => fn($x) => kisalt($x['ozet'] ?? ''),
+        'sutunlar' => ['Grup' => fn($x) => !empty($x['ust']) ? 'Forklift' : 'Depo ekipmanı', 'Kısa ad' => fn($x) => e($x['kisa'] ?? '—'),
+            'Ürün / katalog' => function ($x) { [$u, $k] = sayac('kat', $x['slug']); return "$u ürün · $k katalog"; }],
+        'nerede' => fn($x) => [['Kategori sayfası', '/' . $x['slug']], ['Üst menü → Ürünler → Kategoriler', '/'], ['Ana sayfa – "Her iş için doğru makine" kartları', '/'], ['Ürünler sayfası', '/urunler']],
+        'aciklama' => 'Ürün kategorileri. Üst menüde, ana sayfadaki kategori kartlarında ve Ürünler sayfasında bu sırayla görünür. Ürün veya katalogda kullanılan bir kategori silinemez.',
         'alanlar' => [
-            ['ad', 'Kategori adı', 'metin', 'zorunlu' => true],
+            ['ad', 'Kategori adı', 'metin', 'zorunlu' => true, 'ipucu' => 'Örnek: Dizel Forkliftler'],
             ['slug', 'Sayfa adresi', 'slug', 'kaynak' => 'ad', 'onek' => '/'],
-            ['kisa', 'Kısa ad', 'metin', 'ipucu' => 'Kartlardaki küçük etiket. Örnek: Dizel'],
-            ['ozet', 'Özet (tek cümle)', 'yazi'],
-            ['metin', 'Kategori sayfası tanıtım metni', 'yazi', 'satir' => 5],
-            ['ust', 'Forklift grubunda (değilse "Depo ekipmanı" sayılır)', 'onay'],
-            ['gorsel', 'Ana sayfa kart görseli (isteğe bağlı)', 'gorsel', 'gen' => 900, 'klasor' => 'kategori'],
+            ['kisa', 'Kısa ad', 'metin', 'ipucu' => 'Katalog kartlarının üstündeki küçük etiket. Örnek: Dizel'],
+            ['ozet', 'Özet (tek cümle)', 'yazi', 'ipucu' => 'Kategori kartında ve kategori sayfasının başlığı altında görünür.'],
+            ['metin', 'Kategori sayfası tanıtım metni', 'yazi', 'satir' => 5, 'ipucu' => 'Kategori sayfasının başındaki paragraf.'],
+            ['ust', 'Forklift grubunda (işaretli değilse "Depo ekipmanı" grubunda gösterilir)', 'onay'],
+            ['gorsel', 'Ana sayfa kart görseli (isteğe bağlı)', 'gorsel', 'gen' => 900, 'klasor' => 'kategori', 'ipucu' => 'Ana sayfadaki kategori kartının arka plan görseli.'],
         ]],
     'sss' => ['ad' => 'Sıkça sorulan sorular', 'tekil' => 'soru', 'goster' => fn($x) => $x['soru'], 'url' => fn($x) => '/sss',
-        'aciklama' => '/sss sayfasındaki sorular.',
+        'ozet' => fn($x) => kisalt($x['cevap'] ?? '', 140),
+        'nerede' => fn($x) => [['Sıkça Sorulan Sorular sayfası', '/sss']],
+        'aciklama' => 'SSS sayfasındaki sorular ve cevaplar. Listedeki sıra sitedeki sıradır; ilk soru sayfa açılınca açık gösterilir. Google aramalarında da soru-cevap olarak görünebilir.',
         'alanlar' => [['soru', 'Soru', 'metin', 'zorunlu' => true], ['cevap', 'Cevap', 'yazi', 'satir' => 6, 'zorunlu' => true]]],
 ];
 
@@ -157,6 +213,37 @@ function teknik_coz(string $t): array {
     }
     return $o;
 }
+/** Satır editöründen (dizi) ya da eski metin kutusundan gelen değeri satırlara çevirir. */
+function satir_al($v, int $kolon): array {
+    if (!is_array($v)) return satir_coz((string)$v, $kolon);
+    ksort($v);
+    $o = [];
+    foreach ($v as $r) {
+        if (!is_array($r)) continue;
+        $h = [];
+        for ($c = 0; $c < $kolon; $c++) { $h[] = trim((string)($r[$c] ?? '')); }
+        if (implode('', $h) !== '') $o[] = $h;
+    }
+    return $o;
+}
+function liste_al($v): array {
+    $l = is_array($v) ? (ksort($v) ? $v : $v) : preg_split('~\R~u', (string)$v);
+    return array_values(array_filter(array_map(fn($x) => trim((string)$x), $l), 'strlen'));
+}
+function teknik_al($v, int $model): array {
+    if (!is_array($v)) return teknik_coz((string)$v);
+    ksort($v);
+    $o = [];
+    foreach ($v as $r) {
+        if (!is_array($r)) continue;
+        if (!empty($r['b'])) { $b = trim((string)($r[0] ?? '')); if ($b !== '') $o[] = [$b, null]; continue; }
+        $h = [];
+        for ($c = 0; $c < 2 + $model; $c++) { $h[] = trim((string)($r[$c] ?? '')); }
+        if (implode('', $h) !== '') $o[] = $h;
+    }
+    return $o;
+}
+
 function teknik_yaz(array $r): string {
     return implode("\n", array_map(fn($x) => (count($x) < 2 || $x[1] === null) ? '## ' . $x[0] : implode(' | ', $x), $r));
 }
@@ -173,9 +260,10 @@ function kayit_isle(string $kol, array $tanim, array $eski, bool $yeni): array {
             case 'secim': $x[$ad] = (string)($P[$alan] ?? ''); break;
             case 'onay': $x[$ad] = $kol === 'kategoriler' && $ad === 'ust' ? (!empty($P[$alan]) ? 'forklift' : null) : !empty($P[$alan]); break;
             case 'coklu': $x[$ad] = array_values(array_map('strval', (array)($P[$alan] ?? []))); break;
-            case 'satirlar': $x[$ad] = satir_coz((string)($P[$alan] ?? '')); break;
-            case 'liste': $x[$ad] = array_values(array_filter(array_map('trim', preg_split('~\R~u', (string)($P[$alan] ?? ''))), 'strlen')); break;
-            case 'teknik': $x[$ad] = teknik_coz((string)($P[$alan] ?? '')); break;
+            case 'baslik': continue 2;
+            case 'satirlar': $x[$ad] = satir_al($P[$alan] ?? [], count($a['sutunlar'] ?? [1, 2])); break;
+            case 'liste': $x[$ad] = liste_al($P[$alan] ?? []); break;
+            case 'teknik': $x[$ad] = teknik_al($P[$alan] ?? [], count($x['modeller'] ?? [])); break;
             case 'slug':
                 if ($yeni) {
                     $g = trim((string)($P[$alan] ?? ''));
@@ -337,15 +425,22 @@ function ust(string $baslik, string $aktif): void {
     global $KOL;
     $ok = 0;
     foreach (json_decode((string)@file_get_contents(VERI . '/mesajlar.json'), true) ?: [] as $m) { if (empty($m['okundu'])) $ok++; }
-    $menu = ['pano' => 'Genel bakış', 'mesajlar' => 'Gelen talepler' . ($ok ? " <b class=\"rozet\">$ok</b>" : ''), 'slaytlar' => 'Ana sayfa banner', 'urunler' => 'Ürünler',
-        'seriler' => 'Ürün detay sayfaları', 'kataloglar' => 'Kataloglar', 'kategoriler' => 'Kategoriler', 'markalar' => 'Markalar',
-        'sayfalar' => 'Sayfa metinleri', 'sss' => 'SSS', 'firma' => 'Firma bilgileri', 'hesap' => 'Hesap'];
+    $menu = [
+        '' => ['pano' => 'Genel bakış', 'mesajlar' => 'Gelen talepler' . ($ok ? " <b class=\"rozet\">$ok</b>" : '')],
+        'Ürün ve katalog' => ['urunler' => 'Ürünler', 'seriler' => 'Ürün detay sayfaları', 'kataloglar' => 'Kataloglar (PDF)'],
+        'Site yapısı' => ['slaytlar' => 'Ana sayfa banner', 'kategoriler' => 'Kategoriler', 'markalar' => 'Markalar'],
+        'Yazılar' => ['sayfalar' => 'Sayfa metinleri', 'sss' => 'Sıkça sorulan sorular'],
+        'Ayarlar' => ['firma' => 'Firma bilgileri', 'hesap' => 'Hesap ve şifre'],
+    ];
     echo '<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow">
 <title>' . e($baslik) . ' · DELLIFT Yönetim</title><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/yonetim/yonetim.css?v=' . SURUM . '"></head><body>
 <header class="ust"><button class="menu-ac" aria-label="Menü" onclick="document.body.classList.toggle(\'menu-acik\')">☰</button><a class="logo" href="/yonetim/"><img src="/assets/img/logo.png" alt="DELLIFT"><span>Yönetim</span></a>
 <div class="ust-sag"><a href="/" target="_blank" rel="noopener">Siteyi gör ↗</a><a href="?s=cikis">Çıkış</a></div></header>
 <div class="duzen"><nav class="yan">';
-    foreach ($menu as $k => $a) { echo '<a href="?s=' . $k . '"' . ($k === $aktif ? ' class="aktif"' : '') . '>' . $a . '</a>'; }
+    foreach ($menu as $grup => $l) {
+        if ($grup !== '') echo '<div class="yan-grup">' . e($grup) . '</div>';
+        foreach ($l as $k => $a) { echo '<a href="?s=' . $k . '"' . ($k === $aktif ? ' class="aktif"' : '') . '>' . $a . '</a>'; }
+    }
     echo '</nav><main class="icerik">';
 }
 function alt(): void { echo '</main></div><script src="/yonetim/yonetim.js?v=' . SURUM . '"></script></body></html>'; }
@@ -354,10 +449,13 @@ function bildirimler(string $mesaj, string $hata): void {
     if ($hata) echo '<div class="uyari hata">' . e($hata) . '</div>';
 }
 
+const ED_DUGME = '<button type="button" class="ed-yukari" title="Yukarı taşı">↑</button><button type="button" class="ed-asagi" title="Aşağı taşı">↓</button><button type="button" class="ed-sil" title="Satırı sil">✕</button>';
+
 function alan_html(array $a, array $x, bool $yeni): string {
     [$ad, $etiket, $tur] = $a;
     $n = 'f_' . $ad;
     $d = $x[$ad] ?? ($a['varsayilan'] ?? '');
+    if (in_array($tur, ['satirlar', 'liste', 'teknik', 'galeri', 'coklu'], true) && !is_array($d)) { $d = []; }
     $ip = !empty($a['ipucu']) ? '<small>' . e($a['ipucu']) . '</small>' : '';
     $z = !empty($a['zorunlu']) ? ' <i>*</i>' : '';
     $sat = (int)($a['satir'] ?? 3);
@@ -371,9 +469,41 @@ function alan_html(array $a, array $x, bool $yeni): string {
             $o = ''; foreach (($a['secenek'])() as $k => $v) { $o .= '<label class="kutu"><input type="checkbox" name="' . $n . '[]" value="' . e($k) . '"' . (in_array($k, (array)$d, true) ? ' checked' : '') . '> ' . e($v) . '</label>'; }
             return "<div class=\"alan\"><span>" . e($etiket) . "</span><div class=\"kutular\">$o</div>$ip</div>";
         case 'onay': return "<label class=\"kutu tek\"><input type=\"checkbox\" name=\"$n\" value=\"1\"" . (!empty($d) ? ' checked' : '') . '> ' . e($etiket) . "</label>";
-        case 'satirlar': return "<label class=\"alan\"><span>" . e($etiket) . "</span><textarea class=\"kod\" name=\"$n\" rows=\"" . max($sat, 4) . '">' . e(implode("\n", array_map(fn($r) => implode(' | ', $r), (array)$d))) . "</textarea>$ip</label>";
-        case 'liste': return "<label class=\"alan\"><span>" . e($etiket) . "</span><textarea class=\"kod\" name=\"$n\" rows=\"3\">" . e(implode("\n", (array)$d)) . "</textarea>$ip</label>";
-        case 'teknik': return "<label class=\"alan\"><span>" . e($etiket) . "</span><textarea class=\"kod\" name=\"$n\" rows=\"$sat\">" . e(teknik_yaz((array)$d)) . "</textarea>$ip</label>";
+        case 'baslik': return '<div class="bolum-bas"><h2>' . e($etiket) . '</h2>' . (!empty($a['ipucu']) ? '<p>' . e($a['ipucu']) . '</p>' : '') . '</div>';
+        case 'satirlar':
+            $sut = $a['sutunlar'] ?? ['Ad', 'Değer'];
+            $orn = $a['ornek'] ?? [];
+            $th = ''; foreach ($sut as $c => $sb) { $th .= '<th>' . e($sb) . '</th>'; }
+            $sat = function (array $r, string $i) use ($n, $sut, $orn): string {
+                $o = '<tr>';
+                foreach ($sut as $c => $_) { $o .= '<td><input name="' . $n . '[' . $i . '][' . $c . ']" data-c="' . $c . '" value="' . e($r[$c] ?? '') . '"' . (isset($orn[$c]) ? ' placeholder="ör. ' . e($orn[$c]) . '"' : '') . '></td>'; }
+                return $o . '<td class="ed-islem">' . ED_DUGME . '</td></tr>';
+            };
+            $tb = ''; foreach (array_values((array)$d) as $k => $r) { $tb .= $sat((array)$r, (string)$k); }
+            return '<div class="alan"><span>' . e($etiket) . '</span>' . $ip . '<div class="satir-ed" data-ad="' . $n . '"><table><thead><tr>' . $th . '<th></th></tr></thead><tbody>' . $tb . '</tbody></table>
+<template>' . $sat([], '__i__') . '</template><div class="ed-alt"><button type="button" class="btn ince ed-ekle">+ Satır ekle</button></div></div><input type="hidden" name="' . $n . '[]" value=""></div>';
+        case 'liste':
+            $sat = fn(string $v, string $i): string => '<tr><td><input name="' . $n . '[' . $i . ']" value="' . e($v) . '"' . (!empty($a['ornek']) ? ' placeholder="ör. ' . e($a['ornek']) . '"' : '') . '></td><td class="ed-islem">' . ED_DUGME . '</td></tr>';
+            $tb = ''; foreach (array_values((array)$d) as $k => $v) { $tb .= $sat((string)$v, (string)$k); }
+            return '<div class="alan"><span>' . e($etiket) . '</span>' . $ip . '<div class="satir-ed" data-ad="' . $n . '" data-liste="1"><table><thead><tr><th>' . e($a['sutun'] ?? 'Değer') . '</th><th></th></tr></thead><tbody>' . $tb . '</tbody></table>
+<template>' . $sat('', '__i__') . '</template><div class="ed-alt"><button type="button" class="btn ince ed-ekle">+ Ekle</button></div></div><input type="hidden" name="' . $n . '[]" value=""></div>';
+        case 'teknik':
+            $mod = array_values((array)($x['modeller'] ?? []));
+            $mc = max(1, count($mod));
+            foreach ((array)$d as $r) { if (($r[1] ?? null) !== null) $mc = max($mc, count($r) - 2); }
+            $th = '<th>Özellik</th><th class="dar">Birim</th>';
+            for ($c = 0; $c < $mc; $c++) { $th .= '<th class="model-th">' . e($mod[$c] ?? ($c + 1) . '. model') . '</th>'; }
+            $veri = function (array $r, string $i) use ($n, $mc): string {
+                $o = '<tr><td><input name="' . $n . '[' . $i . '][0]" data-c="0" value="' . e($r[0] ?? '') . '" placeholder="ör. Yük kapasitesi"></td><td class="dar"><input name="' . $n . '[' . $i . '][1]" data-c="1" value="' . e($r[1] ?? '') . '" placeholder="kg"></td>';
+                for ($c = 0; $c < $mc; $c++) { $o .= '<td class="model-td"><input name="' . $n . '[' . $i . '][' . (2 + $c) . ']" data-c="' . (2 + $c) . '" value="' . e($r[2 + $c] ?? '') . '"></td>'; }
+                return $o . '<td class="ed-islem">' . ED_DUGME . '</td></tr>';
+            };
+            $bas = fn(string $t, string $i): string => '<tr class="ara-bas"><td colspan="' . (2 + $mc) . '"><input type="hidden" name="' . $n . '[' . $i . '][b]" value="1" data-c="b"><input name="' . $n . '[' . $i . '][0]" data-c="0" value="' . e($t) . '" placeholder="Ara başlık, ör. Ölçüler"></td><td class="ed-islem">' . ED_DUGME . '</td></tr>';
+            $tb = '';
+            foreach (array_values((array)$d) as $k => $r) { $r = (array)$r; $tb .= (count($r) < 2 || $r[1] === null) ? $bas((string)$r[0], (string)$k) : $veri((array)$r, (string)$k); }
+            return '<div class="alan"><span>' . e($etiket) . '</span>' . $ip . '<div class="satir-ed teknik-ed" data-ad="' . $n . '"><div class="tablo-kaydir"><table><thead><tr>' . $th . '<th></th></tr></thead><tbody>' . $tb . '</tbody></table></div>
+<template class="t-veri">' . $veri([], '__i__') . '</template><template class="t-bas">' . $bas('', '__i__') . '</template>
+<div class="ed-alt"><button type="button" class="btn ince ed-ekle">+ Satır ekle</button><button type="button" class="btn ince ed-ekle-bas">+ Ara başlık ekle</button></div></div><input type="hidden" name="' . $n . '[]" value=""></div>';
         case 'slug':
             if (!$yeni) return '<div class="alan"><span>' . e($etiket) . '</span><code class="adres">' . e(str_replace('<marka>', (string)($x['marka'] ?? ''), $a['onek'])) . e($d) . '</code><small>Sayfa adresi yayından sonra değiştirilmez (Google\'daki bağlantılar kırılmasın diye).</small></div>';
             return "<label class=\"alan\"><span>" . e($etiket) . "</span><input name=\"$n\" placeholder=\"boş bırakırsanız addan otomatik oluşur\" pattern=\"[a-z0-9-]*\"><small>Yalnız küçük harf, rakam ve tire. Örnek: " . e($a['onek']) . "nigmer-nmr-dizel</small></label>";
@@ -464,9 +594,10 @@ if (isset($KOL[$s])) {
                 if (!array_key_exists($n, $_POST) && $a[2] !== 'onay') continue;
                 $h = is_array($_POST[$n] ?? null) ? '' : (string)($_POST[$n] ?? '');
                 switch ($a[2]) {
-                    case 'satirlar': $x[$a[0]] = satir_coz($h); break;
-                    case 'liste': $x[$a[0]] = preg_split('~\R~u', $h); break;
-                    case 'teknik': $x[$a[0]] = teknik_coz($h); break;
+                    case 'baslik': break;
+                    case 'satirlar': $x[$a[0]] = satir_al($_POST[$n] ?? [], count($a['sutunlar'] ?? [1, 2])); break;
+                    case 'liste': $x[$a[0]] = liste_al($_POST[$n] ?? []); break;
+                    case 'teknik': $x[$a[0]] = teknik_al($_POST[$n] ?? [], count(liste_al($_POST['f_modeller'] ?? []))); break;
                     case 'onay': $x[$a[0]] = !empty($_POST[$n]); break;
                     case 'coklu': $x[$a[0]] = (array)($_POST[$n] ?? []); break;
                     case 'gorsel': case 'galeri': case 'pdf': case 'slug': break;
@@ -476,7 +607,12 @@ if (isset($KOL[$s])) {
         }
         ust($t['ad'], $s);
         echo '<p class="geri"><a href="?s=' . $s . '">← ' . e($t['ad']) . '</a></p><h1>' . ($yeni ? 'Yeni ' . e($t['tekil']) : e(($t['goster'])($x))) . '</h1>';
-        if (!$yeni && !empty($t['url'])) echo '<p class="aciklama"><a href="' . e(($t['url'])($x)) . '" target="_blank" rel="noopener">Sitede görüntüle ↗</a></p>';
+        echo '<p class="aciklama">' . e($t['aciklama']) . '</p>';
+        if (!$yeni && !empty($t['nerede'])) {
+            echo '<div class="nerede"><b>Bu ' . e($t['tekil']) . ' sitede nerede görünür?</b><ul>';
+            foreach (($t['nerede'])($x) as [$ad, $url]) { echo '<li><a href="' . e($url) . '" target="_blank" rel="noopener">' . e($ad) . ' ↗</a></li>'; }
+            echo '</ul>' . (isset($x['aktif']) && empty($x['aktif']) ? '<p class="uyari-k">Şu an gizli: "Sitede yayında" işaretli olmadığı için ziyaretçiler görmüyor.</p>' : '') . '</div>';
+        }
         bildirimler($mesaj, $hata);
         echo '<form method="post" enctype="multipart/form-data" class="duzenle" action="?s=' . $s . ($yeni ? '&yeni=1' : '&i=' . $i) . '">' . csrf_alan() . '<input type="hidden" name="islem" value="kaydet"><input type="hidden" name="i" value="' . ($yeni ? '' : $i) . '">';
         foreach ($t['alanlar'] as $a) { echo alan_html($a, $x, $yeni); }
@@ -508,15 +644,21 @@ if (isset($KOL[$s])) {
         $gorunen[$i] = $x;
     }
     $sp = sayfala(array_keys($gorunen), 25, 'p');
-    echo '<ul class="liste">';
+    $sut = $t['sutunlar'] ?? [];
+    echo '<div class="tablo-kap"><table class="kayitlar"><thead><tr>' . (!empty($t['resim']) ? '<th class="k-gorsel">Görsel</th>' : '') . '<th>' . e(ucfirst($t['tekil'])) . '</th>';
+    foreach ($sut as $sb => $_) { echo '<th>' . e($sb) . '</th>'; }
+    echo '<th class="k-sira">Sıra</th><th class="k-islem"></th></tr></thead><tbody>';
     foreach ($sp['l'] as $i) {
         $x = $gorunen[$i];
         $r = !empty($t['resim']) ? ($t['resim'])($x) : '';
-        echo '<li id="k' . $i . '">' . ($r ? '<img src="' . e($r) . '" alt="" loading="lazy">' : '') . '<a class="l-ad" href="?s=' . $s . '&i=' . $i . '"><b>' . e(($t['goster'])($x)) . '</b>' . (!empty($t['alt']) ? '<small>' . e(($t['alt'])($x)) . '</small>' : '') . '</a>
-<form method="post" class="tasi" action="?' . e(http_build_query(array_diff_key($_GET, ['i' => 1, 'yeni' => 1]))) . '">' . csrf_alan() . '<input type="hidden" name="islem" value="tasi"><input type="hidden" name="i" value="' . $i . '"><button name="yon" value="yukari" title="Yukarı">▲</button><button name="yon" value="asagi" title="Aşağı">▼</button></form>
-<a class="btn ince" href="?s=' . $s . '&i=' . $i . '">Düzenle</a></li>';
+        $oz = !empty($t['ozet']) ? ($t['ozet'])($x) : '';
+        echo '<tr id="k' . $i . '">' . (!empty($t['resim']) ? '<td class="k-gorsel">' . ($r ? '<img src="' . e($r) . '" alt="" loading="lazy">' : '<span class="gorsel-yok">görsel yok</span>') . '</td>' : '') .
+            '<td class="k-ad"><a href="?s=' . $s . '&i=' . $i . '"><b>' . e(($t['goster'])($x)) . '</b></a>' . ($oz !== '' ? '<small>' . e($oz) . '</small>' : '') . '</td>';
+        foreach ($sut as $sb => $fn) { echo '<td data-b="' . e($sb) . '">' . $fn($x) . '</td>'; }
+        echo '<td class="k-sira"><form method="post" class="tasi" action="?' . e(http_build_query(array_diff_key($_GET, ['i' => 1, 'yeni' => 1]))) . '">' . csrf_alan() . '<input type="hidden" name="islem" value="tasi"><input type="hidden" name="i" value="' . $i . '"><button name="yon" value="yukari" title="Yukarı taşı">▲</button><button name="yon" value="asagi" title="Aşağı taşı">▼</button></form></td>
+<td class="k-islem"><a class="btn ince" href="?s=' . $s . '&i=' . $i . '">Düzenle</a>' . (!empty($t['url']) ? '<a class="k-gor" href="' . e(($t['url'])($x)) . '" target="_blank" rel="noopener" title="Sitede gör">Sitede gör ↗</a>' : '') . '</td></tr>';
     }
-    echo '</ul>' . $sp['nav'];
+    echo '</tbody></table></div>' . $sp['nav'];
     if ($l && !$gorunen) echo '<p class="bos">Aramaya uyan kayıt yok.</p>';
     if (!$l) echo '<p class="bos">Henüz kayıt yok.</p>';
     alt(); exit;
