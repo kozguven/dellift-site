@@ -2,3 +2,10 @@ kaynak/
 *.zip
 .DS_Store
 __pycache__/
+# canlı sunucuda oluşan / gizli dosyalar
+web/veri/kullanici.json
+web/veri/mesajlar.json
+web/veri/giris-deneme.json
+web/veri/yedek/
+web/assets/yuklenen/*
+!web/assets/yuklenen/.keep

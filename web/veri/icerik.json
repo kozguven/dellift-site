@@ -1,0 +1,2444 @@
+{
+ "firma": {
+  "ad": "DELLIFT",
+  "alt": "Forklift ve İstif Makinaları",
+  "unvan": "DELLIFT Forklift ve İstif Makinaları",
+  "tel": "0534 821 70 50",
+  "tel_uri": "+905348217050",
+  "wa": "905348217050",
+  "eposta": "info@dellift.com.tr",
+  "adres": "Battalgazi Mah. Egemen Sk. No:20, Sultanbeyli / İstanbul",
+  "adres_kisa": "Egemen Sk. No:20, Sultanbeyli / İstanbul",
+  "harita_q": "Egemen Sokak No:20 Battalgazi Sultanbeyli İstanbul",
+  "instagram": "https://www.instagram.com/dellift.tr/",
+  "site": "https://dellift.com.tr",
+  "kampanya": "6 ay ödemesiz, 60 aya varan ödeme seçenekleriyle hemen forklift sahibi olun",
+  "alt_bilgi_metni": "Forklift ve istif makinalarında satış, kiralama, servis ve yedek parça. Sultanbeyli'den İstanbul ve çevresine hızlı hizmet."
+ },
+ "slaytlar": [
+  {
+   "gorsel": "/assets/img/hero-satis.webp",
+   "baslik": "Forklift ve istif makinalarında *doğru adres*",
+   "metin": "Sıfır ve ikinci el forklift satışı, kısa ve uzun dönem kiralama, 24 saatte servis ve yedek parça. Niğmer, EP, Litef, Dolphin, JAC ve Lonking.",
+   "b1_yazi": "Teklif Al",
+   "b1_link": "/iletisim#teklif",
+   "b2_yazi": "Satış",
+   "b2_link": "/forklift-satis"
+  },
+  {
+   "gorsel": "/assets/img/hero-kiralama.webp",
+   "baslik": "İhtiyacınız kadar *kiralayın*",
+   "metin": "Günlük, aylık ve uzun dönem forklift kiralama. Bakım ve servis bizden, siz işinize odaklanın.",
+   "b1_yazi": "Fiyat Sor",
+   "b1_link": "/iletisim#teklif",
+   "b2_yazi": "Kiralama",
+   "b2_link": "/forklift-kiralama"
+  },
+  {
+   "gorsel": "/assets/img/hero-servis.webp",
+   "baslik": "24 saatte *servis ve yedek parça*",
+   "metin": "Arızada hızlı müdahale, periyodik bakım ve orijinal yedek parça. Makineniz durursa işiniz durmasın.",
+   "b1_yazi": "WhatsApp'tan Yaz",
+   "b1_link": "wa:Merhaba, servis talebim var.",
+   "b2_yazi": "Servis",
+   "b2_link": "/servis"
+  }
+ ],
+ "markalar": [
+  {
+   "slug": "nigmer",
+   "ad": "Niğmer",
+   "kat": [
+    "dizel-forklift",
+    "akulu-forklift"
+   ],
+   "ozet": "Sahada sık gördüğünüz turkuaz gövdeli Niğmer forkliftler; dizel ve akülü seçenekleriyle depo, üretim ve dış saha işleri için."
+  },
+  {
+   "slug": "ep",
+   "ad": "EP",
+   "kat": [
+    "dizel-forklift",
+    "akulu-forklift"
+   ],
+   "ozet": "EP'nin dizel ve akülü forklift modelleri; yoğun vardiyalı depo ve üretim hatlarında verimli çalışma için."
+  },
+  {
+   "slug": "litef",
+   "ad": "Litef",
+   "kat": [
+    "dizel-forklift",
+    "akulu-forklift",
+    "istif-makinalari"
+   ],
+   "ozet": "Litef forklift ve istif makinaları; dar koridorlu depolardan açık sahaya kadar farklı ihtiyaçlara uygun seçenekler."
+  },
+  {
+   "slug": "dolphin",
+   "ad": "Dolphin",
+   "kat": [
+    "dizel-forklift",
+    "akulu-forklift",
+    "istif-makinalari"
+   ],
+   "ozet": "Dolphin dizel, akülü forklift ve istif makinaları; günlük operasyonda pratik ve ekonomik çözümler."
+  },
+  {
+   "slug": "jac",
+   "ad": "JAC",
+   "kat": [
+    "dizel-forklift",
+    "akulu-forklift",
+    "istif-makinalari"
+   ],
+   "ozet": "JAC forklift ve istif makinaları; dizel, lityum akülü ve istif modelleriyle geniş kapasite aralığı."
+  },
+  {
+   "slug": "lonking",
+   "ad": "Lonking",
+   "kat": [
+    "dizel-forklift",
+    "akulu-forklift",
+    "istif-makinalari"
+   ],
+   "ozet": "Lonking forklift ve istif makinaları; ağır yük ve dış saha işlerinde dayanıklı performans."
+  }
+ ],
+ "kategoriler": [
+  {
+   "slug": "dizel-forklift",
+   "ad": "Dizel Forkliftler",
+   "kisa": "Dizel",
+   "ust": "forklift",
+   "ozet": "Açık saha, şantiye ve ağır yük işleri için güçlü, uzun çalışma süreli dizel forkliftler.",
+   "metin": "Dizel forkliftler, yakıt ikmaliyle kesintisiz çalışabilmeleri ve yüksek çekiş güçleri sayesinde açık sahada, inşaat malzemesi ve ağır yük taşımacılığında ilk tercihtir. Havalı veya dolgu lastik, farklı direk yükseklikleri ve ataşman seçenekleriyle işinize uygun makineyi birlikte belirleriz."
+  },
+  {
+   "slug": "akulu-forklift",
+   "ad": "Akülü Forkliftler",
+   "kisa": "Akülü",
+   "ust": "forklift",
+   "ozet": "Kapalı alanda sessiz, egzozsuz ve düşük işletme maliyetli elektrikli forkliftler.",
+   "metin": "Akülü (elektrikli) forkliftler egzoz gazı çıkarmadığı ve sessiz çalıştığı için gıda, ilaç, tekstil ve kapalı depo işletmelerinde öne çıkar. Lityum veya jel akü, 3 ve 4 teker seçenekleriyle vardiya düzeninize uygun modeli öneririz."
+  },
+  {
+   "slug": "ikinci-el-forklift",
+   "ad": "2. El Forkliftler",
+   "kisa": "2. El",
+   "ust": "forklift",
+   "ozet": "Bakımı yapılmış, kontrolden geçmiş, bütçe dostu ikinci el forkliftler.",
+   "metin": "İkinci el forkliftlerimiz teslimden önce servis ekibimizin kontrolünden geçer; motor, hidrolik, direk ve fren sistemleri incelenir. Güncel stok, çalışma saati ve fiyat bilgisi için bizi arayın ya da WhatsApp'tan yazın."
+  },
+  {
+   "slug": "istif-makinalari",
+   "ad": "İstif Makinaları",
+   "kisa": "İstif",
+   "ust": null,
+   "ozet": "Raf sistemlerinde paletleri güvenle yükseğe istiflemek için akülü istif makinaları.",
+   "metin": "İstif makinaları, dar koridorlu depolarda paletleri raflara yerleştirmek için idealdir. Yaya kumandalı ve platformlu modellerde farklı kaldırma yükseklikleri ve kapasiteler sunuyoruz."
+  },
+  {
+   "slug": "transpaletler",
+   "ad": "Transpaletler",
+   "kisa": "Akülü transpalet",
+   "ust": null,
+   "ozet": "Yükleme rampası ve depo içi taşıma için akülü transpaletler.",
+   "metin": "Akülü transpaletler, kamyon yükleme-boşaltma ve depo içi palet taşımada operatörün yükünü hafifletir, işi hızlandırır. Lityum akülü, kompakt modellerle dar alanlarda rahat manevra sağlar."
+  },
+  {
+   "slug": "manuel-transpaletler",
+   "ad": "Manuel Transpaletler",
+   "kisa": "Manuel transpalet",
+   "ust": null,
+   "ozet": "Her işletmenin ihtiyacı olan dayanıklı, bakım gerektirmeyen el transpaletleri.",
+   "metin": "Manuel transpaletler, kısa mesafeli palet taşımada en pratik ve ekonomik çözümdür. Farklı çatal uzunlukları ve taşıma kapasiteleriyle stoktan teslim edilir."
+  }
+ ],
+ "urunler": [
+  {
+   "id": "u1",
+   "kat": "dizel-forklift",
+   "marka": "nigmer",
+   "ad": "Niğmer 3 Ton Dizel Forklift",
+   "model": "NMR 30D",
+   "gorsel": "/assets/img/urun/nigmer-nmr/01-800.webp",
+   "detay": "nigmer-nmr-dizel-forklift",
+   "ozellik": [
+    [
+     "Kapasite",
+     "3.000 kg"
+    ],
+    [
+     "Kaldırma",
+     "4.700 mm"
+    ],
+    [
+     "Motor",
+     "Xinchai Euro V · 44,8 kW"
+    ],
+    [
+     "Garanti",
+     "2 yıl / 2.000 saat"
+    ]
+   ],
+   "aciklama": "Yerli üretim, Euro V dizel motorlu, havalı lastikli 3 ton forklift; depo, saha ve yükleme işleri için.",
+   "anasayfa": true,
+   "aktif": true
+  },
+  {
+   "id": "u2",
+   "kat": "dizel-forklift",
+   "marka": "nigmer",
+   "ad": "Niğmer 3,5 Ton Dizel Forklift",
+   "model": "NMR 35D",
+   "gorsel": "/assets/img/urun/nigmer-nmr/02-800.webp",
+   "detay": "nigmer-nmr-dizel-forklift",
+   "ozellik": [
+    [
+     "Kapasite",
+     "3.500 kg"
+    ],
+    [
+     "Kaldırma",
+     "4.700 mm"
+    ],
+    [
+     "Motor",
+     "Xinchai Euro V · 44,8 kW"
+    ],
+    [
+     "Garanti",
+     "2 yıl / 2.000 saat"
+    ]
+   ],
+   "aciklama": "Aynı gövdede 3,5 ton kapasite; daha ağır paletler ve yoğun vardiyalar için güçlü dizel forklift.",
+   "anasayfa": false,
+   "aktif": true
+  },
+  {
+   "id": "u3",
+   "kat": "dizel-forklift",
+   "marka": "ep",
+   "ad": "EP 3 Ton Dizel Forklift",
+   "model": "CPCD30T",
+   "gorsel": "/assets/img/urun/ep-cpcd/01-800.webp",
+   "detay": "ep-cpcd30-35t-dizel-forklift",
+   "ozellik": [
+    [
+     "Kapasite",
+     "3.000 kg"
+    ],
+    [
+     "Kaldırma",
+     "3.000 mm"
+    ],
+    [
+     "Motor",
+     "Xinchai · 44,8 kW"
+    ],
+    [
+     "Şanzıman",
+     "Hidrolik powershift"
+    ]
+   ],
+   "aciklama": "Güçlendirilmiş şaseli, havalı lastikli 3 ton dizel forklift; saha ve depo işleri için.",
+   "anasayfa": true,
+   "aktif": true
+  },
+  {
+   "id": "u4",
+   "kat": "dizel-forklift",
+   "marka": "ep",
+   "ad": "EP 3,5 Ton Dizel Forklift",
+   "model": "CPCD35T",
+   "gorsel": "/assets/img/urun/ep-cpcd/02-800.webp",
+   "detay": "ep-cpcd30-35t-dizel-forklift",
+   "ozellik": [
+    [
+     "Kapasite",
+     "3.500 kg"
+    ],
+    [
+     "Kaldırma",
+     "3.000 mm"
+    ],
+    [
+     "Motor",
+     "Xinchai · 44,8 kW"
+    ],
+    [
+     "Şanzıman",
+     "Hidrolik powershift"
+    ]
+   ],
+   "aciklama": "Aynı gövdede 3,5 ton kapasite; ağır paletler ve yoğun kullanım için.",
+   "anasayfa": false,
+   "aktif": true
+  },
+  {
+   "id": "u5",
+   "kat": "akulu-forklift",
+   "marka": "ep",
+   "ad": "EP 3 Ton Lityum Akülü Forklift",
+   "model": "EFL302X5",
+   "gorsel": "/assets/img/urun/ep-x5/01-800.webp",
+   "detay": "ep-efl302-352x5-akulu-forklift",
+   "ozellik": [
+    [
+     "Kapasite",
+     "3.000 kg"
+    ],
+    [
+     "Kaldırma",
+     "3.000 mm"
+    ],
+    [
+     "Akü",
+     "80 V 280 Ah lityum"
+    ],
+    [
+     "Hız",
+     "16 / 17 km/sa"
+    ]
+   ],
+   "aciklama": "Modüler lityum aküsüyle ara şarj edilebilen, bakım gerektirmeyen 3 ton akülü forklift.",
+   "anasayfa": true,
+   "aktif": true
+  },
+  {
+   "id": "u6",
+   "kat": "akulu-forklift",
+   "marka": "ep",
+   "ad": "EP 3,5 Ton Lityum Akülü Forklift",
+   "model": "EFL352X5",
+   "gorsel": "/assets/img/urun/ep-x5/02-800.webp",
+   "detay": "ep-efl302-352x5-akulu-forklift",
+   "ozellik": [
+    [
+     "Kapasite",
+     "3.500 kg"
+    ],
+    [
+     "Kaldırma",
+     "3.000 mm"
+    ],
+    [
+     "Akü",
+     "80 V 280 Ah lityum"
+    ],
+    [
+     "Hız",
+     "16 / 17 km/sa"
+    ]
+   ],
+   "aciklama": "3,5 ton kapasiteli X5 serisi; 150 mm yerden yükseklik ve büyük lastiklerle her zeminde.",
+   "anasayfa": false,
+   "aktif": true
+  }
+ ],
+ "seriler": [
+  {
+   "slug": "nigmer-nmr-dizel-forklift",
+   "marka": "nigmer",
+   "kat": "dizel-forklift",
+   "ad": "Niğmer NMR Serisi Dizel Forklift",
+   "kisa": "3 ve 3,5 ton · Euro V dizel · yerli üretim",
+   "giris": "Niğmer NMR serisi, Niğde'de üretilen, Euro V emisyon standardında dizel forkliftlerdir. 3 ton (NMR 30D) ve 3,5 ton (NMR 35D) kapasiteli iki model, 4,70 m kaldırma yüksekliği, havalı lastik ve 60 HP Xinchai dizel motorla depo, şantiye ve açık saha işlerinde uzun ve kesintisiz çalışma sunar. Üretici garantisi 2 yıl / 2.000 saattir.",
+   "one_baslik": "Neden NMR serisi?",
+   "not": "2 yıl / 2.000 saat üretici garantisi",
+   "one_cikan": [
+    [
+     "60 HP Euro V dizel motor",
+     "Xinchai 3E22YG51; 44,8 kW / 2.400 dev/dk, 210 Nm tork."
+    ],
+    [
+     "Otomatik rejenerasyon",
+     "Partikül filtresi için otomatik rejenerasyon imkânı."
+    ],
+    [
+     "15 mm ST37 tek parça şase",
+     "Güçlendirilmiş monoblok şase ile uzun ömür."
+    ],
+    [
+     "Emniyet kemeri ve operatör algılama",
+     "Operatör koltukta değilse ve kemer takılı değilse uyarı."
+    ],
+    [
+     "Ataşmanlar için 4. yol seçeneği",
+     "Yan kaydırma, çatal pozisyoner gibi ataşmanlara hazır."
+    ],
+    [
+     "32 cc yağ pompası",
+     "Güçlü hidrolik ile hızlı kaldırma: yüklü 420 mm/sn'ye kadar."
+    ]
+   ],
+   "modeller": [
+    "NMR 30D",
+    "NMR 35D"
+   ],
+   "teknik": [
+    [
+     "Genel",
+     null
+    ],
+    [
+     "Yük kapasitesi",
+     "kg",
+     "3.000",
+     "3.500"
+    ],
+    [
+     "Yük merkezi",
+     "mm",
+     "500",
+     "500"
+    ],
+    [
+     "Azami kaldırma yüksekliği",
+     "mm",
+     "4.700",
+     "4.700"
+    ],
+    [
+     "Emisyon standardı",
+     "",
+     "EURO V",
+     "EURO V"
+    ],
+    [
+     "Motor tipi",
+     "",
+     "Dizel",
+     "Dizel"
+    ],
+    [
+     "Ölçüler",
+     null
+    ],
+    [
+     "Toplam yükseklik (üst koruma)",
+     "mm",
+     "2.140",
+     "2.140"
+    ],
+    [
+     "Toplam uzunluk (çatallı / çatalsız)",
+     "mm",
+     "3.814 / 2.744",
+     "3.820 / 2.750"
+    ],
+    [
+     "Tekerlek tabanı",
+     "mm",
+     "1.750",
+     "1.750"
+    ],
+    [
+     "Toplam genişlik",
+     "mm",
+     "1.225",
+     "1.225"
+    ],
+    [
+     "Min. dönüş yarıçapı (dış)",
+     "mm",
+     "2.400",
+     "2.400"
+    ],
+    [
+     "Min. dönüş yarıçapı (iç)",
+     "mm",
+     "80",
+     "80"
+    ],
+    [
+     "Direk eğim açısı (ileri / geri)",
+     "°",
+     "6 / 6 – 6 / 12",
+     "6 / 6 – 6 / 12"
+    ],
+    [
+     "Çatal boyutu",
+     "mm",
+     "1220 × 125 × 45",
+     "1220 × 125 × 45"
+    ],
+    [
+     "Ağırlık",
+     null
+    ],
+    [
+     "Toplam ağırlık",
+     "kg",
+     "4.660",
+     "4.900"
+    ],
+    [
+     "Ağırlık dağılımı, yüklü (ön / arka)",
+     "kg",
+     "7.280 / 820",
+     "8.065 / 870"
+    ],
+    [
+     "Ağırlık dağılımı, yüksüz (ön / arka)",
+     "kg",
+     "1.790 / 2.810",
+     "1.975 / 3.108"
+    ],
+    [
+     "Lastikler ve frenler",
+     null
+    ],
+    [
+     "Lastik tipi (ön / arka)",
+     "",
+     "Havalı",
+     "Havalı"
+    ],
+    [
+     "Lastik boyutu (ön / arka)",
+     "",
+     "28x9-15-14PR / 6.5-10-12PR",
+     "28x9-15-14PR / 6.5-10-12PR"
+    ],
+    [
+     "Servis freni",
+     "",
+     "Hidrolik pedal",
+     "Hidrolik pedal"
+    ],
+    [
+     "El freni",
+     "",
+     "Mekanik el kolu",
+     "Mekanik el kolu"
+    ],
+    [
+     "Performans",
+     null
+    ],
+    [
+     "Azami çekme gücü (yüklü / yüksüz)",
+     "kN",
+     "22 / 13,7",
+     "23 / 14"
+    ],
+    [
+     "Azami tırmanma (yüklü / yüksüz)",
+     "%",
+     "32 / 22",
+     "30 / 21"
+    ],
+    [
+     "Yürüyüş hızı (yüklü / yüksüz)",
+     "km/sa",
+     "19 / 19",
+     "19 / 19"
+    ],
+    [
+     "Kaldırma hızı (yüklü / yüksüz)",
+     "mm/sn",
+     "420 / 450",
+     "370 / 390"
+    ],
+    [
+     "İndirme hızı (yüklü / yüksüz)",
+     "mm/sn",
+     "450 / 460",
+     "450 / 460"
+    ],
+    [
+     "Motor ve akü",
+     null
+    ],
+    [
+     "Motor üreticisi / modeli",
+     "",
+     "Xinchai 3E22YG51",
+     "Xinchai 3E22YG51"
+    ],
+    [
+     "Anma gücü / devri",
+     "kW/dev/dk",
+     "44,8 / 2.400",
+     "44,8 / 2.400"
+    ],
+    [
+     "Azami tork / devri",
+     "Nm/dev/dk",
+     "210 / 1.600–1.800",
+     "210 / 1.600–1.800"
+    ],
+    [
+     "Silindir sayısı",
+     "",
+     "3",
+     "3"
+    ],
+    [
+     "Hacim",
+     "litre",
+     "2,23",
+     "2,23"
+    ],
+    [
+     "Akü (voltaj / kapasite)",
+     "V/Ah",
+     "12 / 95",
+     "12 / 95"
+    ]
+   ],
+   "gorseller": [
+    "/assets/img/urun/nigmer-nmr/01",
+    "/assets/img/urun/nigmer-nmr/02",
+    "/assets/img/urun/nigmer-nmr/03",
+    "/assets/img/urun/nigmer-nmr/04",
+    "/assets/img/urun/nigmer-nmr/05",
+    "/assets/img/urun/nigmer-nmr/06",
+    "/assets/img/urun/nigmer-nmr/07",
+    "/assets/img/urun/nigmer-nmr/08",
+    "/assets/img/urun/nigmer-nmr/09",
+    "/assets/img/urun/nigmer-nmr/10",
+    "/assets/img/urun/nigmer-nmr/11",
+    "/assets/img/urun/nigmer-nmr/12",
+    "/assets/img/urun/nigmer-nmr/13",
+    "/assets/img/urun/nigmer-nmr/14"
+   ],
+   "katalog": "/assets/dosya/nigmer-nmr-dizel-forklift-katalog.pdf",
+   "aktif": true
+  },
+  {
+   "slug": "ep-cpcd30-35t-dizel-forklift",
+   "marka": "ep",
+   "kat": "dizel-forklift",
+   "ad": "EP CPCD30T / CPCD35T Dizel Forklift",
+   "kisa": "3 ve 3,5 ton · Xinchai dizel motor · hidrolik powershift",
+   "giris": "EP CPCD T serisi dizel forkliftler, güçlendirilmiş şasesi ve Xinchai dizel motoruyla depo, şantiye ve açık saha işlerinde güvenilir bir yük taşıma çözümüdür. 3 ton (CPCD30T) ve 3,5 ton (CPCD35T) kapasiteli modeller, hidrolik powershift şanzıman, havalı lastik ve 3 m standart kaldırma yüksekliğiyle gelir; farklı asansör, çatal ve lastik seçenekleriyle işinize göre yapılandırılabilir.",
+   "one_baslik": "Öne çıkan özellikler",
+   "not": "Satış, kiralama ve servis",
+   "one_cikan": [
+    [
+     "Marka dizel motor",
+     "Xinchai 3E22YG51, 3 silindir, 44,8 kW; güçlü performans ve uzun ömür."
+    ],
+    [
+     "Güçlendirilmiş şase",
+     "Kalınlaştırılmış, güçlendirilmiş gövde yapısı."
+    ],
+    [
+     "Hidrolik powershift şanzıman",
+     "1 ileri / 1 geri, yumuşak ve kolay kullanım."
+    ],
+    [
+     "Lastik seçenekleri",
+     "Havalı (pnömatik) standart; dolgu ve iz bırakmayan dolgu lastik seçeneği."
+    ],
+    [
+     "Elektrostatik boya",
+     "Paslanmaya karşı dayanıklı, köşe koruması sağlayan kaplama."
+    ],
+    [
+     "Ataşman seçenekleri",
+     "Entegre veya harici yan kaydırma, çatal pozisyoner, farklı çatal boyları."
+    ]
+   ],
+   "modeller": [
+    "CPCD30T",
+    "CPCD35T"
+   ],
+   "teknik": [
+    [
+     "Genel",
+     null
+    ],
+    [
+     "Yük kapasitesi",
+     "kg",
+     "3.000",
+     "3.500"
+    ],
+    [
+     "Yük merkezi",
+     "mm",
+     "500",
+     "500"
+    ],
+    [
+     "Kaldırma yüksekliği (standart)",
+     "mm",
+     "3.000",
+     "3.000"
+    ],
+    [
+     "Serbest kaldırma yüksekliği",
+     "mm",
+     "140",
+     "145"
+    ],
+    [
+     "Yakıt tipi",
+     "",
+     "Dizel",
+     "Dizel"
+    ],
+    [
+     "Ölçüler",
+     null
+    ],
+    [
+     "Çatal boyutu",
+     "mm",
+     "1070 × 125 × 45",
+     "1070 × 125 × 45"
+    ],
+    [
+     "Direk eğim açısı (ileri / geri)",
+     "°",
+     "6 / 10",
+     "6 / 10"
+    ],
+    [
+     "Çatal yüzüne kadar uzunluk",
+     "mm",
+     "2.792",
+     "2.797"
+    ],
+    [
+     "Toplam genişlik",
+     "mm",
+     "1.225",
+     "1.225"
+    ],
+    [
+     "Direk kapalı yükseklik",
+     "mm",
+     "2.070",
+     "2.070"
+    ],
+    [
+     "Direk açık yükseklik",
+     "mm",
+     "4.120",
+     "4.120"
+    ],
+    [
+     "Üst koruma yüksekliği",
+     "mm",
+     "2.190",
+     "2.190"
+    ],
+    [
+     "Dönüş yarıçapı",
+     "mm",
+     "2.400",
+     "2.400"
+    ],
+    [
+     "Dingil açıklığı",
+     "mm",
+     "1.750",
+     "1.750"
+    ],
+    [
+     "Performans",
+     null
+    ],
+    [
+     "Seyir hızı (yüklü / yüksüz)",
+     "km/sa",
+     "18 / 19",
+     "18 / 19"
+    ],
+    [
+     "Kaldırma hızı (yüklü / yüksüz)",
+     "mm/sn",
+     "440 / 470",
+     "400 / 470"
+    ],
+    [
+     "İndirme hızı (yüklü / yüksüz)",
+     "mm/sn",
+     "410 / 450",
+     "410 / 450"
+    ],
+    [
+     "Azami çekme gücü (yüklü)",
+     "N",
+     "19.000",
+     "19.000"
+    ],
+    [
+     "Azami tırmanma",
+     "%",
+     "20",
+     "20"
+    ],
+    [
+     "Lastikler ve ağırlık",
+     null
+    ],
+    [
+     "Lastik tipi",
+     "",
+     "Havalı",
+     "Havalı"
+    ],
+    [
+     "Lastik boyutu (ön / arka)",
+     "",
+     "28×9-15-14PR / 6.50-10-10PR",
+     "28×9-15-14PR / 6.50-10-10PR"
+    ],
+    [
+     "Servis ağırlığı",
+     "kg",
+     "4.200",
+     "4.200"
+    ],
+    [
+     "Ağırlık dağılımı, yüklü (ön / arka)",
+     "kg",
+     "6.390 / 810",
+     "6.390 / 810"
+    ],
+    [
+     "Ağırlık dağılımı, yüksüz (ön / arka)",
+     "kg",
+     "1.710 / 2.490",
+     "1.710 / 2.490"
+    ],
+    [
+     "Motor ve aktarma",
+     null
+    ],
+    [
+     "Motor",
+     "",
+     "Xinchai 3E22YG51",
+     "Xinchai 3E22YG51"
+    ],
+    [
+     "Motor gücü",
+     "kW/dev/dk",
+     "44,8 / 2.400",
+     "44,8 / 2.400"
+    ],
+    [
+     "Silindir sayısı / hacim",
+     "cc",
+     "3 / 2.670",
+     "3 / 2.670"
+    ],
+    [
+     "Yakıt deposu",
+     "litre",
+     "60",
+     "60"
+    ],
+    [
+     "Akü (voltaj / kapasite)",
+     "V/Ah",
+     "12 / 80",
+     "12 / 80"
+    ],
+    [
+     "Şanzıman",
+     "",
+     "Hidrolik powershift",
+     "Hidrolik powershift"
+    ]
+   ],
+   "gorseller": [
+    "/assets/img/urun/ep-cpcd/01",
+    "/assets/img/urun/ep-cpcd/02",
+    "/assets/img/urun/ep-cpcd/03",
+    "/assets/img/urun/ep-cpcd/04"
+   ],
+   "katalog": "/assets/dosya/ep/cpcd25-30-35t.pdf",
+   "aktif": true
+  },
+  {
+   "slug": "ep-efl302-352x5-akulu-forklift",
+   "marka": "ep",
+   "kat": "akulu-forklift",
+   "ad": "EP EFL302X5 / EFL352X5 Lityum Akülü Forklift",
+   "kisa": "3 ve 3,5 ton · 80 V lityum akü · ara şarj, sıfır bakım",
+   "giris": "EP X5 serisi, modüler lityum iyon aküsüyle dizel forklift gücünü sessiz ve emisyonsuz çalışmayla birleştirir. 3 ton (EFL302X5) ve 3,5 ton (EFL352X5) kapasiteli modeller; ara şarj desteği, bakım gerektirmeyen akü, 150 mm yerden yükseklik ve büyük lastikleriyle hem kapalı depoda hem rampada, açık sahada rahat çalışır.",
+   "one_baslik": "Öne çıkan özellikler",
+   "not": "Satış, kiralama ve servis",
+   "one_cikan": [
+    [
+     "Modüler lityum akü",
+     "Standart 80 V 280 Ah modül; ikinci modülle 560 Ah'e çıkar."
+    ],
+    [
+     "Ara şarj, sıfır bakım",
+     "Mola aralarında şarj; su ekleme, akü bakımı yok."
+    ],
+    [
+     "Kesintisiz çalışma",
+     "Çift aküde biri bitince diğeri devreye girer; 7/24 vardiya."
+    ],
+    [
+     "150 mm yerden yükseklik",
+     "Büyük lastiklerle rampa, çukur ve bozuk zeminde takılmadan çalışır."
+    ],
+    [
+     "Yüksek performans",
+     "16/17 km/sa seyir, %20'ye varan tırmanma, 0,45 m/sn kaldırma."
+    ],
+    [
+     "Geliştirilmiş kabin",
+     "Geniş görüşlü tripleks asansör, kolçaklı koltuk, LED far, büyük LED ekran."
+    ]
+   ],
+   "modeller": [
+    "EFL302X5",
+    "EFL352X5"
+   ],
+   "teknik": [
+    [
+     "Genel",
+     null
+    ],
+    [
+     "Yük kapasitesi",
+     "kg",
+     "3.000",
+     "3.500"
+    ],
+    [
+     "Yük merkezi",
+     "mm",
+     "500",
+     "500"
+    ],
+    [
+     "Sürüş / operatör",
+     "",
+     "Elektrikli, koltuklu",
+     "Elektrikli, koltuklu"
+    ],
+    [
+     "Servis ağırlığı",
+     "kg",
+     "4.820",
+     "5.020"
+    ],
+    [
+     "Asansör ve ölçüler",
+     null
+    ],
+    [
+     "Kaldırma yüksekliği (standart)",
+     "mm",
+     "3.000",
+     "3.000"
+    ],
+    [
+     "Serbest kaldırma",
+     "mm",
+     "135",
+     "135"
+    ],
+    [
+     "Direk kapalı yükseklik",
+     "mm",
+     "2.065",
+     "2.065"
+    ],
+    [
+     "Direk açık yükseklik",
+     "mm",
+     "4.130",
+     "4.130"
+    ],
+    [
+     "Üst koruma yüksekliği",
+     "mm",
+     "2.160",
+     "2.160"
+    ],
+    [
+     "Direk eğim açısı (ileri / geri)",
+     "°",
+     "6 / 10",
+     "6 / 10"
+    ],
+    [
+     "Toplam uzunluk",
+     "mm",
+     "3.819",
+     "3.824"
+    ],
+    [
+     "Çatal yüzüne kadar uzunluk",
+     "mm",
+     "2.749",
+     "2.754"
+    ],
+    [
+     "Toplam genişlik",
+     "mm",
+     "1.230",
+     "1.230"
+    ],
+    [
+     "Çatal boyutu",
+     "mm",
+     "45 × 122 × 1070",
+     "50 × 122 × 1070"
+    ],
+    [
+     "Dönüş yarıçapı",
+     "mm",
+     "2.498",
+     "2.498"
+    ],
+    [
+     "Yerden yükseklik (dingil ortası)",
+     "mm",
+     "150",
+     "150"
+    ],
+    [
+     "Koridor genişliği, 1000×1200 palet",
+     "mm",
+     "4.179",
+     "4.184"
+    ],
+    [
+     "Performans",
+     null
+    ],
+    [
+     "Seyir hızı (yüklü / yüksüz)",
+     "km/sa",
+     "16 / 17",
+     "16 / 17"
+    ],
+    [
+     "Kaldırma hızı (yüklü / yüksüz)",
+     "m/sn",
+     "0,45 / 0,55",
+     "0,44 / 0,55"
+    ],
+    [
+     "İndirme hızı (yüklü / yüksüz)",
+     "m/sn",
+     "0,50 / 0,44",
+     "0,50 / 0,44"
+    ],
+    [
+     "Azami tırmanma (yüklü / yüksüz)",
+     "%",
+     "20 / 25",
+     "18 / 25"
+    ],
+    [
+     "Lastikler ve frenler",
+     null
+    ],
+    [
+     "Lastik tipi",
+     "",
+     "Havalı",
+     "Havalı"
+    ],
+    [
+     "Lastik boyutu (ön / arka)",
+     "",
+     "28X9-15-14PR / 6.50-10-10PR",
+     "28X9-15-14PR / 6.50-10-10PR"
+    ],
+    [
+     "Servis freni / el freni",
+     "",
+     "Hidrolik / mekanik",
+     "Hidrolik / mekanik"
+    ],
+    [
+     "Elektrik",
+     null
+    ],
+    [
+     "Akü",
+     "V/Ah",
+     "80 / 280 lityum (ops. 560)",
+     "80 / 280 lityum (ops. 560)"
+    ],
+    [
+     "Tahrik motoru (S2 60 dk)",
+     "kW",
+     "16",
+     "16"
+    ],
+    [
+     "Kaldırma motoru (S3 %15)",
+     "kW",
+     "24",
+     "24"
+    ],
+    [
+     "Kontrol",
+     "",
+     "AC",
+     "AC"
+    ],
+    [
+     "Sürücü kulağında ses seviyesi",
+     "dB(A)",
+     "< 74",
+     "< 74"
+    ]
+   ],
+   "gorseller": [
+    "/assets/img/urun/ep-x5/01",
+    "/assets/img/urun/ep-x5/02",
+    "/assets/img/urun/ep-x5/03",
+    "/assets/img/urun/ep-x5/04",
+    "/assets/img/urun/ep-x5/05",
+    "/assets/img/urun/ep-x5/06"
+   ],
+   "katalog": "/assets/dosya/ep/efl302-352-382x5.pdf",
+   "aktif": true
+  }
+ ],
+ "kataloglar": [
+  {
+   "marka": "ep",
+   "slug": "cpcd25-30-35t",
+   "model": "CPC(Q)D25/30/35T",
+   "aciklama": "2,5–3,5 ton dizel / LPG forklift",
+   "kat": "dizel-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/cpcd25-30-35t.pdf",
+   "kapak": "/assets/img/katalog/ep/cpcd25-30-35t.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "cpd15-20l1",
+   "model": "CPD15/20L1",
+   "aciklama": "1,5–2 ton lityum akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/cpd15-20l1.pdf",
+   "kapak": "/assets/img/katalog/ep/cpd15-20l1.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "cpd20l1s",
+   "model": "CPD20L1S",
+   "aciklama": "2 ton lityum akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/cpd20l1s.pdf",
+   "kapak": "/assets/img/katalog/ep/cpd20l1s.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "cpd25l2",
+   "model": "CPD25L2(B/S)",
+   "aciklama": "2,5 ton akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/cpd25l2.pdf",
+   "kapak": "/assets/img/katalog/ep/cpd25l2.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "cpd30-35l1s",
+   "model": "CPD30/35L1S",
+   "aciklama": "3–3,5 ton lityum akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/cpd30-35l1s.pdf",
+   "kapak": "/assets/img/katalog/ep/cpd30-35l1s.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "cpd15-20-25f8",
+   "model": "CPD15/20/25F8",
+   "aciklama": "1,5–2,5 ton akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/cpd15-20-25f8.pdf",
+   "kapak": "/assets/img/katalog/ep/cpd15-20-25f8.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "cpd45-50f8",
+   "model": "CPD45/50F8",
+   "aciklama": "4,5–5 ton ağır hizmet akülü forklift (80 V)",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/cpd45-50f8.pdf",
+   "kapak": "/assets/img/katalog/ep/cpd45-50f8.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "cpd50l1",
+   "model": "CPD50L1",
+   "aciklama": "5 ton lityum akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/cpd50l1.pdf",
+   "kapak": "/assets/img/katalog/ep/cpd50l1.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "cpd15-18-20tv8",
+   "model": "CPD15/18/20TV8",
+   "aciklama": "1,5–2 ton 3 tekerlekli akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/cpd15-18-20tv8.pdf",
+   "kapak": "/assets/img/katalog/ep/cpd15-18-20tv8.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "cpd15-18-20tvl",
+   "model": "CPD15/18/20TVL",
+   "aciklama": "1,5–2 ton 3 tekerlekli, çift tahrikli akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/cpd15-18-20tvl.pdf",
+   "kapak": "/assets/img/katalog/ep/cpd15-18-20tvl.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "cpd18-20fvl",
+   "model": "CPD18/20FVL",
+   "aciklama": "1,8–2 ton 4 tekerlekli, çift tahrikli akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/cpd18-20fvl.pdf",
+   "kapak": "/assets/img/katalog/ep/cpd18-20fvl.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "tdl161-201",
+   "model": "TDL161/201",
+   "aciklama": "1,6–2 ton 3 tekerlekli, çift tahrikli akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/tdl161-201.pdf",
+   "kapak": "/assets/img/katalog/ep/tdl161-201.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "efl252x2",
+   "model": "EFL252X2",
+   "aciklama": "2,5 ton lityum akülü forklift (X2 serisi)",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/efl252x2.pdf",
+   "kapak": "/assets/img/katalog/ep/efl252x2.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "efl252x3",
+   "model": "EFL252X3",
+   "aciklama": "2,5 ton lityum akülü forklift (X3 serisi)",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/efl252x3.pdf",
+   "kapak": "/assets/img/katalog/ep/efl252x3.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "efl302x4",
+   "model": "EFL302X4",
+   "aciklama": "3 ton lityum akülü forklift (X4 serisi)",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/efl302x4.pdf",
+   "kapak": "/assets/img/katalog/ep/efl302x4.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "efl302-352-382x5",
+   "model": "EFL302X5/352X5/382X5",
+   "aciklama": "3–3,8 ton lityum akülü forklift (X5 serisi)",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/efl302-352-382x5.pdf",
+   "kapak": "/assets/img/katalog/ep/efl302-352-382x5.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "efx3-251-301",
+   "model": "EFX3-251/301",
+   "aciklama": "2,5–3 ton lityum akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/efx3-251-301.pdf",
+   "kapak": "/assets/img/katalog/ep/efx3-251-301.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "efx5-301-351-381",
+   "model": "EFX5-301/351/381",
+   "aciklama": "3–3,8 ton akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/efx5-301-351-381.pdf",
+   "kapak": "/assets/img/katalog/ep/efx5-301-351-381.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "efla251b",
+   "model": "EFLA251B",
+   "aciklama": "2,5 ton lityum akülü forklift, dolgu lastik",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/efla251b.pdf",
+   "kapak": "/assets/img/katalog/ep/efla251b.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "efl253-303-353s",
+   "model": "EFL253/303/353(S)",
+   "aciklama": "2,5–3,5 ton lityum akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/efl253-303-353s.pdf",
+   "kapak": "/assets/img/katalog/ep/efl253-303-353s.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "efl253-303-353sp",
+   "model": "EFL253/303/353(S/P)",
+   "aciklama": "2,5–3,5 ton lityum akülü forklift (S/P)",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/efl253-303-353sp.pdf",
+   "kapak": "/assets/img/katalog/ep/efl253-303-353sp.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "efl702",
+   "model": "EFL702",
+   "aciklama": "7 ton lityum akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/efl702.pdf",
+   "kapak": "/assets/img/katalog/ep/efl702.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "efl1002",
+   "model": "EFL1002",
+   "aciklama": "10 ton lityum akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/efl1002.pdf",
+   "kapak": "/assets/img/katalog/ep/efl1002.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "efs101",
+   "model": "EFS101",
+   "aciklama": "990 kg kompakt akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/efs101.pdf",
+   "kapak": "/assets/img/katalog/ep/efs101.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "efs151",
+   "model": "EFS151",
+   "aciklama": "1,5 ton 3 tekerlekli akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/efs151.pdf",
+   "kapak": "/assets/img/katalog/ep/efs151.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "epl153",
+   "model": "EPL153",
+   "aciklama": "1,5 ton akülü transpalet",
+   "kat": "transpaletler",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/epl153.pdf",
+   "kapak": "/assets/img/katalog/ep/epl153.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "epl1531",
+   "model": "EPL1531",
+   "aciklama": "1,5 ton akülü transpalet",
+   "kat": "transpaletler",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/epl1531.pdf",
+   "kapak": "/assets/img/katalog/ep/epl1531.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "epl154",
+   "model": "EPL154",
+   "aciklama": "1,5 ton akülü transpalet",
+   "kat": "transpaletler",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/epl154.pdf",
+   "kapak": "/assets/img/katalog/ep/epl154.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "f1",
+   "model": "F1",
+   "aciklama": "1,5 ton akülü transpalet (F serisi)",
+   "kat": "transpaletler",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/f1.pdf",
+   "kapak": "/assets/img/katalog/ep/f1.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "f2",
+   "model": "F2",
+   "aciklama": "1,5 ton akülü transpalet (F serisi)",
+   "kat": "transpaletler",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/f2.pdf",
+   "kapak": "/assets/img/katalog/ep/f2.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "f3",
+   "model": "F3",
+   "aciklama": "1,5 ton lityum akülü transpalet",
+   "kat": "transpaletler",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/f3.pdf",
+   "kapak": "/assets/img/katalog/ep/f3.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "f4",
+   "model": "F4",
+   "aciklama": "1,5 ton lityum akülü transpalet",
+   "kat": "transpaletler",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/f4.pdf",
+   "kapak": "/assets/img/katalog/ep/f4.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "f4-teraziili",
+   "model": "F4 (teraziili)",
+   "aciklama": "Tartı özellikli lityum akülü transpalet",
+   "kat": "transpaletler",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/f4-teraziili.pdf",
+   "kapak": "/assets/img/katalog/ep/f4-teraziili.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "ept20-15et",
+   "model": "EPT20-15ET",
+   "aciklama": "1,5 ton akülü transpalet",
+   "kat": "transpaletler",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/ept20-15et.pdf",
+   "kapak": "/assets/img/katalog/ep/ept20-15et.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "ept20-15et2",
+   "model": "EPT20-15ET2",
+   "aciklama": "1,5 ton kompakt akülü transpalet",
+   "kat": "transpaletler",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/ept20-15et2.pdf",
+   "kapak": "/assets/img/katalog/ep/ept20-15et2.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "ept20-15et2h",
+   "model": "EPT20-15ET2H",
+   "aciklama": "1,5 ton arazi tipi akülü transpalet",
+   "kat": "transpaletler",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/ept20-15et2h.pdf",
+   "kapak": "/assets/img/katalog/ep/ept20-15et2h.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "ept20-18ea",
+   "model": "EPT20-18EA",
+   "aciklama": "1,8 ton akülü transpalet",
+   "kat": "transpaletler",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/ept20-18ea.pdf",
+   "kapak": "/assets/img/katalog/ep/ept20-18ea.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "ept20-et",
+   "model": "EPT20-ET",
+   "aciklama": "2 ton akülü transpalet",
+   "kat": "transpaletler",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/ept20-et.pdf",
+   "kapak": "/assets/img/katalog/ep/ept20-et.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "ept20-et2l",
+   "model": "EPT20-ET2L",
+   "aciklama": "2 ton lityum akülü transpalet",
+   "kat": "transpaletler",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/ept20-et2l.pdf",
+   "kapak": "/assets/img/katalog/ep/ept20-et2l.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "ept20-20wa-25wa",
+   "model": "EPT20-20WA / EPT25-WA",
+   "aciklama": "2–2,5 ton akülü transpalet",
+   "kat": "transpaletler",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/ept20-20wa-25wa.pdf",
+   "kapak": "/assets/img/katalog/ep/ept20-20wa-25wa.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "ept20-30rts-35rts",
+   "model": "EPT20-30RTS / 35RTS",
+   "aciklama": "3–3,5 ton arazi tipi akülü transpalet",
+   "kat": "transpaletler",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/ept20-30rts-35rts.pdf",
+   "kapak": "/assets/img/katalog/ep/ept20-30rts-35rts.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "wpl202",
+   "model": "WPL202",
+   "aciklama": "2 ton ağır hizmet lityum akülü transpalet",
+   "kat": "transpaletler",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/wpl202.pdf",
+   "kapak": "/assets/img/katalog/ep/wpl202.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "kpl201h",
+   "model": "KPL201(H)",
+   "aciklama": "2 ton binicili lityum akülü transpalet",
+   "kat": "transpaletler",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/kpl201h.pdf",
+   "kapak": "/assets/img/katalog/ep/kpl201h.webp",
+   "aktif": true
+  },
+  {
+   "marka": "ep",
+   "slug": "rpl201-251-301",
+   "model": "RPL201(H)/251/301",
+   "aciklama": "2–3 ton binicili ağır hizmet transpalet",
+   "kat": "transpaletler",
+   "dil": "EN",
+   "pdf": "/assets/dosya/ep/rpl201-251-301.pdf",
+   "kapak": "/assets/img/katalog/ep/rpl201-251-301.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "cpcd25-30-35t",
+   "model": "CPCD25T/30T/35T",
+   "aciklama": "2,5–3,5 ton dizel forklift",
+   "kat": "dizel-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/cpcd25-30-35t.pdf",
+   "kapak": "/assets/img/katalog/litef/cpcd25-30-35t.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efl252",
+   "model": "EFL252",
+   "aciklama": "2,5 ton akülü forklift, kompakt ölçüler",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efl252.pdf",
+   "kapak": "/assets/img/katalog/litef/efl252.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efl-x5",
+   "model": "EFL252X5/302X5/352X5/382X5",
+   "aciklama": "2,5–3,8 ton lityum akülü forklift (X5 serisi)",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efl-x5.pdf",
+   "kapak": "/assets/img/katalog/litef/efl-x5.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efl253-303-353",
+   "model": "EFL253/303/353(S/P)",
+   "aciklama": "2,5–3,5 ton lityum iyon akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efl253-303-353.pdf",
+   "kapak": "/assets/img/katalog/litef/efl253-303-353.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "rtf25-30-35",
+   "model": "RTF25/30/35-4L1-HV",
+   "aciklama": "2,5–3,5 ton yüksek voltajlı arazi tipi akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/rtf25-30-35.pdf",
+   "kapak": "/assets/img/katalog/litef/rtf25-30-35.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "tcl152",
+   "model": "TCL152",
+   "aciklama": "1,5 ton 3 tekerlekli, çift tahrikli süper kompakt forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/tcl152.pdf",
+   "kapak": "/assets/img/katalog/litef/tcl152.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "cpd15-18-20tv8",
+   "model": "CPD15/18/20TV8",
+   "aciklama": "1,5–2 ton akülü forklift, soğuk hava depoları için",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/cpd15-18-20tv8.pdf",
+   "kapak": "/assets/img/katalog/litef/cpd15-18-20tv8.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "cpd15-20l1",
+   "model": "CPD15/20L1",
+   "aciklama": "1,5–2 ton akülü denge ağırlıklı forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/cpd15-20l1.pdf",
+   "kapak": "/assets/img/katalog/litef/cpd15-20l1.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "cpd18-20fvl",
+   "model": "CPD18/20FVL",
+   "aciklama": "1,8–2 ton 4 tekerlekli, çift tahrikli lityum akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/cpd18-20fvl.pdf",
+   "kapak": "/assets/img/katalog/litef/cpd18-20fvl.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "cpd45-50f8",
+   "model": "CPD45/50F8",
+   "aciklama": "4,5–5 ton ağır hizmet 80 V lityum akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/cpd45-50f8.pdf",
+   "kapak": "/assets/img/katalog/litef/cpd45-50f8.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "cpd45l1",
+   "model": "CPD45L1",
+   "aciklama": "4,5 ton 4 tekerlekli lityum akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/cpd45l1.pdf",
+   "kapak": "/assets/img/katalog/litef/cpd45l1.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "cpd50l1",
+   "model": "CPD50L1",
+   "aciklama": "5 ton 4 tekerlekli lityum akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/cpd50l1.pdf",
+   "kapak": "/assets/img/katalog/litef/cpd50l1.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efl181",
+   "model": "EFL181",
+   "aciklama": "1,8 ton 4 tekerlekli akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efl181.pdf",
+   "kapak": "/assets/img/katalog/litef/efl181.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efl183",
+   "model": "EFL183",
+   "aciklama": "1,8 ton akülü denge ağırlıklı forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efl183.pdf",
+   "kapak": "/assets/img/katalog/litef/efl183.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efl201",
+   "model": "EFL201",
+   "aciklama": "2 ton 4 tekerlekli lityum akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efl201.pdf",
+   "kapak": "/assets/img/katalog/litef/efl201.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efl203",
+   "model": "EFL203(P)",
+   "aciklama": "2 ton 4 tekerlekli lityum akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efl203.pdf",
+   "kapak": "/assets/img/katalog/litef/efl203.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efl252x2",
+   "model": "EFL252X2",
+   "aciklama": "2,5 ton lityum akülü forklift (X2 serisi)",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efl252x2.pdf",
+   "kapak": "/assets/img/katalog/litef/efl252x2.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efl252x3",
+   "model": "EFL252X3",
+   "aciklama": "2,5–3 ton lityum akülü forklift (X3 serisi)",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efl252x3.pdf",
+   "kapak": "/assets/img/katalog/litef/efl252x3.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efl302x2",
+   "model": "EFL302X2",
+   "aciklama": "3 ton 4 tekerlekli lityum akülü forklift (X2 serisi)",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efl302x2.pdf",
+   "kapak": "/assets/img/katalog/litef/efl302x2.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efl302x4",
+   "model": "EFL302X4",
+   "aciklama": "3 ton lityum akülü forklift, değiştirilebilir modüler akü",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efl302x4.pdf",
+   "kapak": "/assets/img/katalog/litef/efl302x4.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efl302-352",
+   "model": "EFL302/EFL352",
+   "aciklama": "3–3,5 ton lityum akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efl302-352.pdf",
+   "kapak": "/assets/img/katalog/litef/efl302-352.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efl702",
+   "model": "EFL702",
+   "aciklama": "7 ton lityum akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efl702.pdf",
+   "kapak": "/assets/img/katalog/litef/efl702.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efla251s",
+   "model": "EFLA251S",
+   "aciklama": "2,5 ton lityum akülü forklift, dolgu lastik",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efla251s.pdf",
+   "kapak": "/assets/img/katalog/litef/efla251s.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efs101",
+   "model": "EFS101",
+   "aciklama": "990 kg kompakt akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efs101.pdf",
+   "kapak": "/assets/img/katalog/litef/efs101.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efs151",
+   "model": "EFS151",
+   "aciklama": "1,5 ton 3 tekerlekli akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efs151.pdf",
+   "kapak": "/assets/img/katalog/litef/efs151.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efx2-251",
+   "model": "EFX2-251",
+   "aciklama": "2,5 ton lityum akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efx2-251.pdf",
+   "kapak": "/assets/img/katalog/litef/efx2-251.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efx252-302",
+   "model": "EFX252/302",
+   "aciklama": "2,5–3 ton lityum akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efx252-302.pdf",
+   "kapak": "/assets/img/katalog/litef/efx252-302.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efx3-251-301",
+   "model": "EFX3-251/301",
+   "aciklama": "2,5–3 ton lityum akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efx3-251-301.pdf",
+   "kapak": "/assets/img/katalog/litef/efx3-251-301.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efx302h-352h-382h",
+   "model": "EFX302H/352H/382H",
+   "aciklama": "3–3,8 ton ağır hizmet lityum akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efx302h-352h-382h.pdf",
+   "kapak": "/assets/img/katalog/litef/efx302h-352h-382h.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efx4-301",
+   "model": "EFX4-301",
+   "aciklama": "3 ton lityum akülü forklift, değiştirilebilir modüler akü",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efx4-301.pdf",
+   "kapak": "/assets/img/katalog/litef/efx4-301.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efx4-303",
+   "model": "EFX4-303",
+   "aciklama": "3 ton lityum akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efx4-303.pdf",
+   "kapak": "/assets/img/katalog/litef/efx4-303.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efx4-353",
+   "model": "EFX4-353",
+   "aciklama": "3,5 ton lityum akülü forklift, yandan akü değişimli",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efx4-353.pdf",
+   "kapak": "/assets/img/katalog/litef/efx4-353.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efx5-serisi",
+   "model": "EFX5-251/301/351/381",
+   "aciklama": "2,5–3,8 ton lityum (LFP) akülü forklift (EFX5 serisi)",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efx5-serisi.pdf",
+   "kapak": "/assets/img/katalog/litef/efx5-serisi.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "efx5-301-351-381",
+   "model": "EFX5-301/351/381",
+   "aciklama": "3–3,8 ton akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/efx5-301-351-381.pdf",
+   "kapak": "/assets/img/katalog/litef/efx5-301-351-381.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "tcl101",
+   "model": "TCL101",
+   "aciklama": "1 ton 80 V 3 tekerlekli, çift tahrikli forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/tcl101.pdf",
+   "kapak": "/assets/img/katalog/litef/tcl101.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "tcl122",
+   "model": "TCL122",
+   "aciklama": "1,2 ton 3 tekerlekli, çift tahrikli süper kompakt forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/tcl122.pdf",
+   "kapak": "/assets/img/katalog/litef/tcl122.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "tdl161-201",
+   "model": "TDL161/201",
+   "aciklama": "1,6–2 ton 3 tekerlekli, çift tahrikli akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/tdl161-201.pdf",
+   "kapak": "/assets/img/katalog/litef/tdl161-201.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "tdl162",
+   "model": "TDL162",
+   "aciklama": "1,6 ton akülü denge ağırlıklı forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/tdl162.pdf",
+   "kapak": "/assets/img/katalog/litef/tdl162.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "tvl151-181-201",
+   "model": "TVL151/181/201",
+   "aciklama": "1,5–2 ton 3 tekerlekli lityum akülü forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/tvl151-181-201.pdf",
+   "kapak": "/assets/img/katalog/litef/tvl151-181-201.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "tvl182-202",
+   "model": "TVL182/202",
+   "aciklama": "1,8–2 ton 80 V 3 tekerlekli, çift tahrikli forklift",
+   "kat": "akulu-forklift",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/tvl182-202.pdf",
+   "kapak": "/assets/img/katalog/litef/tvl182-202.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "eqa151",
+   "model": "EQA151",
+   "aciklama": "1,5 ton akülü reach truck (3.590 mm)",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/eqa151.pdf",
+   "kapak": "/assets/img/katalog/litef/eqa151.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "ds3",
+   "model": "DS3",
+   "aciklama": "1,5 ton yaya kumandalı akülü istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/ds3.pdf",
+   "kapak": "/assets/img/katalog/litef/ds3.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "ds4",
+   "model": "DS4",
+   "aciklama": "1,5 ton yaya kumandalı akülü istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/ds4.pdf",
+   "kapak": "/assets/img/katalog/litef/ds4.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "ds4-d",
+   "model": "DS4-D",
+   "aciklama": "Geniş çatal ayaklı (straddle) akülü istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/ds4-d.pdf",
+   "kapak": "/assets/img/katalog/litef/ds4-d.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "es12-12mmi",
+   "model": "ES12-12MMI",
+   "aciklama": "1,2 ton ilk kaldırmalı tek kolonlu istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/es12-12mmi.pdf",
+   "kapak": "/assets/img/katalog/litef/es12-12mmi.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "es12-14-16wa",
+   "model": "ES12/14/16-WA",
+   "aciklama": "1,2–1,6 ton ağır hizmet akülü istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/es12-14-16wa.pdf",
+   "kapak": "/assets/img/katalog/litef/es12-14-16wa.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "es15-15es",
+   "model": "ES15-15ES",
+   "aciklama": "1,5 ton akülü istif makinası (4.165 mm)",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/es15-15es.pdf",
+   "kapak": "/assets/img/katalog/litef/es15-15es.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "es15-33dm",
+   "model": "ES15-33DM",
+   "aciklama": "1,5 ton kompakt akülü istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/es15-33dm.pdf",
+   "kapak": "/assets/img/katalog/litef/es15-33dm.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "es151m-i",
+   "model": "ES151M-İ",
+   "aciklama": "1,5 ton çift palet taşıyıcı akülü istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/es151m-i.pdf",
+   "kapak": "/assets/img/katalog/litef/es151m-i.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "es16-rs",
+   "model": "ES16-RS",
+   "aciklama": "1,6 ton yüksek raf akülü istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/es16-rs.pdf",
+   "kapak": "/assets/img/katalog/litef/es16-rs.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "es16-rsi",
+   "model": "ES16-RSi",
+   "aciklama": "1,6 ton akülü istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/es16-rsi.pdf",
+   "kapak": "/assets/img/katalog/litef/es16-rsi.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "es20-20ras",
+   "model": "ES20-20RAS",
+   "aciklama": "2 ton yüksek istifleme akülü istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/es20-20ras.pdf",
+   "kapak": "/assets/img/katalog/litef/es20-20ras.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "es20-wa",
+   "model": "ES20-WA",
+   "aciklama": "2 ton akülü istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/es20-wa.pdf",
+   "kapak": "/assets/img/katalog/litef/es20-wa.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "esa121",
+   "model": "ESA121",
+   "aciklama": "1,2 ton yaya kumandalı akülü istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/esa121.pdf",
+   "kapak": "/assets/img/katalog/litef/esa121.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "esa121-d",
+   "model": "ESA121-D",
+   "aciklama": "1,2 ton yaya kumandalı, destek ayaklı istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/esa121-d.pdf",
+   "kapak": "/assets/img/katalog/litef/esa121-d.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "esa121-m",
+   "model": "ESA121-M",
+   "aciklama": "1,2 ton mono asansörlü akülü istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/esa121-m.pdf",
+   "kapak": "/assets/img/katalog/litef/esa121-m.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "esl122",
+   "model": "ESL122",
+   "aciklama": "1,2 ton geniş ayaklı akülü istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/esl122.pdf",
+   "kapak": "/assets/img/katalog/litef/esl122.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "esr151",
+   "model": "ESR151",
+   "aciklama": "1,5 ton binicili akülü istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/esr151.pdf",
+   "kapak": "/assets/img/katalog/litef/esr151.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "est122",
+   "model": "EST122",
+   "aciklama": "1,2 ton akülü istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/est122.pdf",
+   "kapak": "/assets/img/katalog/litef/est122.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "est124",
+   "model": "EST124",
+   "aciklama": "1,2 ton yaya kumandalı akülü istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/est124.pdf",
+   "kapak": "/assets/img/katalog/litef/est124.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "esi161",
+   "model": "ESi161",
+   "aciklama": "1,6 ton lityum akülü çift katlı istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/esi161.pdf",
+   "kapak": "/assets/img/katalog/litef/esi161.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "ksi201",
+   "model": "KSi201",
+   "aciklama": "2 ton ağır hizmet çift katlı istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/ksi201.pdf",
+   "kapak": "/assets/img/katalog/litef/ksi201.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "rsb202",
+   "model": "RSB202",
+   "aciklama": "2 ton katlanır platformlu lityum istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/rsb202.pdf",
+   "kapak": "/assets/img/katalog/litef/rsb202.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "rsc082-122-152",
+   "model": "RSC082/122/152",
+   "aciklama": "0,8–1,5 ton denge ayaklı akülü istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/rsc082-122-152.pdf",
+   "kapak": "/assets/img/katalog/litef/rsc082-122-152.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "rsc202",
+   "model": "RSC202",
+   "aciklama": "2 ton denge ağırlıklı akülü istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/rsc202.pdf",
+   "kapak": "/assets/img/katalog/litef/rsc202.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "rsl161",
+   "model": "RSL161",
+   "aciklama": "1,6 ton katlanır platformlu lityum istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/rsl161.pdf",
+   "kapak": "/assets/img/katalog/litef/rsl161.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "rsi201",
+   "model": "RSi201",
+   "aciklama": "2 ton ağır hizmet çift katlı istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/rsi201.pdf",
+   "kapak": "/assets/img/katalog/litef/rsi201.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "wsa-serisi",
+   "model": "WSA serisi",
+   "aciklama": "1,2–1,6 ton lityum akülü istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/wsa-serisi.pdf",
+   "kapak": "/assets/img/katalog/litef/wsa-serisi.webp",
+   "aktif": true
+  },
+  {
+   "marka": "litef",
+   "slug": "wsa161i",
+   "model": "WSA161i",
+   "aciklama": "1,6 ton ağır hizmet ilk kaldırmalı istif makinası",
+   "kat": "istif-makinalari",
+   "dil": "TR",
+   "pdf": "/assets/dosya/litef/wsa161i.pdf",
+   "kapak": "/assets/img/katalog/litef/wsa161i.webp",
+   "aktif": true
+  }
+ ],
+ "sss": [
+  {
+   "soru": "Forklift alırken nelere dikkat etmeliyim?",
+   "cevap": "Önce işin kendisine bakın: taşınacak en ağır yük, yükün ağırlık merkezi, kaldırma yüksekliği, çalışma zemini (beton, toprak, rampa) ve makinenin kapalı mı açık alanda çalışacağı. Bunlara günlük çalışma saati, servis ve yedek parça erişimi eklendiğinde doğru model netleşir. Sahanızı görüp size uygun makineyi birlikte seçebiliriz."
+  },
+  {
+   "soru": "Sıfır forklift mi, ikinci el mi?",
+   "cevap": "Yoğun ve uzun vadeli kullanımda sıfır forklift; garanti, düşük arıza riski ve finansman kolaylığıyla öne çıkar. Kullanım saati az olan ya da bütçesi sınırlı işletmeler için bakımı yapılmış ikinci el forklift mantıklı bir başlangıçtır. Kısa süreli ya da dönemsel ihtiyaçlarda kiralama da değerlendirilebilir."
+  },
+  {
+   "soru": "Elektrikli forklift mi, dizel mi?",
+   "cevap": "Kapalı alanda, gıda ve hijyen gerektiren ortamlarda, düz zeminde elektrikli (akülü) forklift; açık sahada, engebeli zeminde ve ağır yüklerde dizel forklift daha uygundur. Akülü modellerin enerji ve bakım maliyeti genellikle daha düşüktür; dizel modeller ise uzun ve kesintisiz çalışmada avantaj sağlar."
+  },
+  {
+   "soru": "Forklift fiyatları nasıl belirlenir?",
+   "cevap": "Fiyatı; marka ve model, taşıma kapasitesi, direk (asansör) yüksekliği, motor ya da akü tipi, lastik tipi, ataşmanlar ve döviz kuru belirler. İkinci elde buna çalışma saati ve makinenin genel durumu eklenir. İhtiyacınızı paylaşın, aynı gün net fiyat teklifi gönderelim."
+  },
+  {
+   "soru": "Finansman seçenekleri nelerdir?",
+   "cevap": "Peşin alımlarda avantajlı fiyat sunuyoruz. Finansman tercih eden işletmeler için anlaşmalı leasing şirketleri üzerinden 6 ay ödemesiz, 60 aya varan vade seçenekleri sunulabilir. Ayrıntılar Finansal Çözümler sayfamızda."
+  },
+  {
+   "soru": "Kimlerle çalışıyoruz?",
+   "cevap": "Depo ve lojistik firmaları, üretim tesisleri, inşaat ve yapı malzemesi işletmeleri, gıda ve perakende sektörü başta olmak üzere forklifte ihtiyaç duyan her ölçekten işletmeye hizmet veriyoruz. Ürün tarafında Niğmer, EP, Litef, Dolphin, JAC ve Lonking markalarıyla çalışıyoruz."
+  },
+  {
+   "soru": "Limited ve şahıs şirketi farkı nelerdir?",
+   "cevap": "Forklift alımında iki şirket türü de satın alma ve leasing yapabilir. Fark çoğunlukla finansman başvurusunda istenen belgelerde ve vergi tarafındadır: şahıs şirketinde işletme sahibinin, limited şirkette şirketin mali tabloları değerlendirilir. Vergi ve amortisman açısından en doğru yol için mali müşavirinizle görüşmenizi öneririz; leasing başvurusu için gereken belgeleri biz iletiriz."
+  },
+  {
+   "soru": "Forklift bakımları ne sıklıkla yapılmalı?",
+   "cevap": "Günlük kontroller (yağ, su, lastik, fren, zincir, akü) operatör tarafından her vardiya başında yapılmalıdır. Periyodik bakım, üretici tavsiyesine göre genellikle her 250–500 çalışma saatinde bir yapılır. Yoğun kullanımda bu aralık kısalır. Yasal periyodik kontroller de yılda en az bir kez yaptırılmalıdır."
+  },
+  {
+   "soru": "Forklift için özel bir ehliyet gerekiyor mu?",
+   "cevap": "Forklift kullanacak kişinin forklift operatörlük belgesine sahip olması gerekir. Forklift trafiğe açık yolda kullanılacaksa ayrıca uygun sınıf sürücü belgesi aranır. Operatör eğitimi ve belge süreci hakkında da sizi yönlendirebiliriz."
+  },
+  {
+   "soru": "Forklift alırken hangi kapasitede seçmeliyim?",
+   "cevap": "Taşıyacağınız en ağır yükü ve kaldırma yüksekliğini esas alın; kapasite yükseldikçe ve direk uzadıkça makinenin taşıyabileceği yük azalır. Bu yüzden en ağır yükünüzün biraz üzerinde, payı olan bir kapasite seçmek gerekir. Depo içi işlerde 1,5–2,5 ton, genel kullanımda 3–3,5 ton, ağır işlerde 5 ton ve üzeri modeller tercih edilir."
+  }
+ ],
+ "sayfalar": {
+  "hakkimizda": {
+   "baslik": "Hakkımızda",
+   "aciklama": "DELLIFT; forklift ve istif makinalarında satış, kiralama, servis ve yedek parça hizmeti veren İstanbul Sultanbeyli merkezli firma.",
+   "h1": "Hakkımızda",
+   "alt": "Forklift ve istif makinalarında satış, kiralama, servis ve yedek parça.",
+   "gorsel": "/assets/img/forklift-nigmer-800.webp",
+   "icerik": "<span class=\"etiket\">Hakkımızda</span>\n<h2 style=\"margin-top:0\">İşinizi taşıyan makineler, yanınızda duran bir ekip</h2>\n<p>DELLIFT, forklift ve istif makinaları alanında satış, kiralama, servis ve yedek parça hizmeti veren bir İstanbul firmasıdır. Sultanbeyli'deki merkezimizden depo, lojistik, üretim, inşaat ve perakende sektöründeki işletmelere hizmet veriyoruz.</p>\n<p>Bizim için forklift satmak, işin yalnızca başlangıcı. Doğru makine; taşınan yüke, kaldırma yüksekliğine, zemine ve vardiya düzenine göre seçilir. Bu yüzden önce işinizi dinliyor, gerekirse sahanızı yerinde görüyor, ardından size en uygun modeli ve en uygun ödeme yolunu birlikte belirliyoruz.</p>\n<div class=\"vurgu\"><b>Makineniz durursa, işiniz durmasın.</b>Satış ve kiralamanın arkasında 24 saatte servis ve yedek parça sözümüz var.</div>\n<h2>Neler yapıyoruz?</h2>\n<ul>\n<li><b>Satış:</b> Niğmer, EP, Litef, Dolphin, JAC ve Lonking markalarında sıfır dizel ve akülü forklift, istif makinası ve transpalet; kontrolden geçmiş ikinci el forkliftler.</li>\n<li><b>Kiralama:</b> Günlük, haftalık, aylık ve uzun dönem forklift kiralama; bakım ve servis kiraya dahil.</li>\n<li><b>Servis ve yedek parça:</b> Arıza müdahalesi, periyodik bakım ve yedek parça tedariki.</li>\n<li><b>Finansal çözümler:</b> Peşin alımda avantajlı fiyat; leasing ile 6 ay ödemesiz, 60 aya varan vade.</li>\n</ul>\n<h2>Nasıl çalışıyoruz?</h2>\n<ol class=\"adimlar\">\n<li><div><b>İhtiyacı dinliyoruz.</b> Yük, yükseklik, zemin ve çalışma süresini öğreniyoruz.</div></li>\n<li><div><b>Doğru makineyi öneriyoruz.</b> Satın alma, kiralama ya da ikinci el seçeneklerini karşılaştırmalı sunuyoruz.</div></li>\n<li><div><b>Hızlı teslim ediyoruz.</b> Makine, kontrolleri yapılmış ve kullanıma hazır şekilde sahanıza gelir.</div></li>\n<li><div><b>Yanınızda kalıyoruz.</b> Bakım takvimi, servis ve yedek parçada muhatabınız yine biziz.</div></li>\n</ol>"
+  },
+  "forklift-satis": {
+   "baslik": "Forklift Satış – Sıfır ve 2. El",
+   "aciklama": "Sıfır ve ikinci el dizel, akülü forklift, istif makinası ve transpalet satışı. Peşin alımda avantajlı fiyat, 60 aya varan leasing. DELLIFT İstanbul.",
+   "h1": "Forklift Satış",
+   "alt": "Sıfır ve ikinci el forklift, istif makinası ve transpalet.",
+   "gorsel": "/assets/img/hero-satis-800.webp",
+   "icerik": "<span class=\"etiket\">Forklift Satış</span>\n<h2 style=\"margin-top:0\">İşinize uygun forklifti birlikte seçelim</h2>\n<p>Sıfır ve ikinci el forklift satışında amacımız size en pahalı makineyi değil, işinizi en verimli yapacak makineyi satmak. Taşıyacağınız yük, kaldırma yüksekliği, çalışma zemini ve günlük kullanım süresi üzerinden ihtiyacınızı netleştirir, seçenekleri karşılaştırmalı olarak sunarız.</p>\n<h2>Satışını yaptığımız ürünler</h2>\n<ul>\n<li><a href=\"/dizel-forklift\"><b>Dizel forkliftler</b></a> — açık saha, şantiye ve ağır yük işleri için.</li>\n<li><a href=\"/akulu-forklift\"><b>Akülü (elektrikli) forkliftler</b></a> — kapalı alan, gıda ve depo işletmeleri için; lityum ve jel akü seçenekleriyle.</li>\n<li><a href=\"/ikinci-el-forklift\"><b>İkinci el forkliftler</b></a> — bakımı yapılmış, kontrolden geçmiş, bütçe dostu makineler.</li>\n<li><a href=\"/istif-makinalari\"><b>İstif makinaları</b></a>, <a href=\"/transpaletler\"><b>akülü transpaletler</b></a> ve <a href=\"/manuel-transpaletler\"><b>manuel transpaletler</b></a>.</li>\n</ul>\n<p>Niğmer, EP, Litef, Dolphin, JAC ve Lonking markalarında farklı kapasite, direk yüksekliği ve lastik seçenekleri sunuyoruz.</p>\n<div class=\"vurgu\"><b>Peşin alımda avantajlı fiyat</b>Peşin ödemede size özel fiyat çalışıyoruz. Finansman isterseniz leasing ile 6 ay ödemesiz, 60 aya varan vade de mümkün. <a href=\"/finansal-cozumler\">Finansal çözümler →</a></div>\n<h2>Satın alma süreci</h2>\n<ol class=\"adimlar\">\n<li><div><b>İhtiyaç analizi:</b> Yük, yükseklik, zemin ve kullanım süresini konuşuyoruz; gerekirse sahanızı yerinde görüyoruz.</div></li>\n<li><div><b>Teklif:</b> Uygun modelleri teknik özellikleri ve fiyatlarıyla karşılaştırmalı olarak sunuyoruz.</div></li>\n<li><div><b>Teslimat:</b> Makine kontrolleri yapılmış, kullanıma hazır şekilde adresinize teslim edilir; operatöre temel kullanım bilgisi verilir.</div></li>\n<li><div><b>Satış sonrası:</b> Periyodik bakım, 24 saatte servis ve yedek parça desteğiyle yanınızdayız.</div></li>\n</ol>"
+  },
+  "forklift-kiralama": {
+   "baslik": "Forklift Kiralama – Günlük, Aylık, Uzun Dönem",
+   "aciklama": "İstanbul'da günlük, aylık ve uzun dönem forklift kiralama. Dizel ve akülü forklift, istif makinası. Bakım ve servis dahil. DELLIFT.",
+   "h1": "Forklift Kiralama",
+   "alt": "Günlük, aylık ve uzun dönem; bakım ve servis dahil.",
+   "gorsel": "/assets/img/hero-kiralama-800.webp",
+   "icerik": "<span class=\"etiket\">Forklift Kiralama</span>\n<h2 style=\"margin-top:0\">Makine almadan, ihtiyacınız kadar kullanın</h2>\n<p>Sezonluk yoğunluk, yeni bir proje, arızalı makinenizin yerine geçici çözüm ya da yatırım yapmadan filonuzu büyütmek... Forklift kiralama, sermayenizi bağlamadan ihtiyacınız olan makineye hemen ulaşmanın en pratik yoludur.</p>\n<h2>Kiralama seçenekleri</h2>\n<ul>\n<li><b>Kısa dönem:</b> Günlük ve haftalık kiralama; acil işler, yükleme-boşaltma ve dönemsel yoğunluklar için.</li>\n<li><b>Aylık kiralama:</b> Proje bazlı ve sezonluk işler için esnek süreli kiralama.</li>\n<li><b>Uzun dönem kiralama:</b> 12 ay ve üzeri sözleşmelerle sabit aylık maliyet; bakım ve servis dahil.</li>\n<li><b>Operatörlü / operatörsüz:</b> İhtiyacınıza göre makineyi operatörüyle birlikte de sağlayabiliriz.</li>\n</ul>\n<h2>Kiralamanın avantajları</h2>\n<ul>\n<li>Makine için büyük bir yatırım yapmazsınız, nakit akışınız korunur.</li>\n<li>Periyodik bakım ve servis kiraya dahildir; arızada makine değişimi yapılır.</li>\n<li>İşin büyüklüğüne göre farklı kapasitede makineye geçebilirsiniz.</li>\n<li>Kira bedeli işletme gideri olarak kaydedilebilir (ayrıntı için mali müşavirinize danışın).</li>\n</ul>\n<div class=\"vurgu\"><b>Dizel, akülü, istif ve transpalet</b>Kiralık filomuzda farklı kapasitelerde dizel ve akülü forkliftler ile istif makinaları bulunur. Güncel uygunluk ve fiyat için bizi arayın.</div>"
+  },
+  "servis": {
+   "baslik": "Forklift Servis ve Yedek Parça – 24 Saatte",
+   "aciklama": "Forklift servis ve yedek parçada 24 saat garantisi. Arıza müdahalesi, periyodik bakım, akü bakımı ve bakım sözleşmesi. DELLIFT İstanbul.",
+   "h1": "Servis ve Yedek Parça",
+   "alt": "24 saatte servis ve yedek parça garantisi.",
+   "gorsel": "/assets/img/hero-servis-800.webp",
+   "icerik": "<span class=\"etiket\">Servis ve Yedek Parça</span>\n<h2 style=\"margin-top:0\">24 saatte servis ve yedek parça garantisi</h2>\n<div class=\"vurgu\"><b>24 saat içinde yanınızdayız</b>Forkliftiniz arızalandığında 24 saat içinde servis ve yedek parça desteği sağlıyoruz. Durduğunuz her saat size maliyet; biz bunu biliyoruz.</div>\n<p>Satışını yaptığımız makinelerin yanı sıra farklı marka forklift, istif makinası ve transpaletlere de servis veriyoruz. Mobil servis ekibimiz sahanıza gelir; atölye gerektiren işler merkezimizde yapılır.</p>\n<h2>Servis hizmetlerimiz</h2>\n<ul>\n<li><b>Arıza müdahalesi:</b> Motor, şanzıman, hidrolik, elektrik ve fren sistemlerinde arıza tespiti ve onarım.</li>\n<li><b>Periyodik bakım:</b> Üretici tavsiyelerine uygun, çalışma saatine göre planlanmış bakım; yağ, filtre ve sarf malzeme değişimi.</li>\n<li><b>Akü bakımı:</b> Akülü forklift ve istif makinalarında akü ve şarj sistemi kontrolü.</li>\n<li><b>Bakım sözleşmesi:</b> Filonuz için yıllık bakım planı ve öncelikli servis.</li>\n</ul>\n<h2>Yedek parça</h2>\n<p>Filtre, lastik, zincir, fren, hidrolik ve motor parçalarında geniş stok ile hızlı tedarik sağlıyoruz. Stokta olmayan parçalar için en kısa tedarik süresini birlikte planlıyoruz.</p>\n<h2>Servis talebi nasıl oluşturulur?</h2>\n<ol class=\"adimlar\">\n<li><div>Bizi arayın ya da WhatsApp'tan makinenin marka-modelini ve arızayı yazın; mümkünse bir fotoğraf ya da video ekleyin.</div></li>\n<li><div>Ekibimiz ön tespiti yapar, gerekli parçayla birlikte yola çıkar.</div></li>\n<li><div>Onarım sonrası makine test edilir, yapılan işlemler size raporlanır.</div></li>\n</ol>"
+  },
+  "finansal-cozumler": {
+   "baslik": "Finansal Çözümler – Peşin ve Leasing",
+   "aciklama": "Forklift alımında peşin ödemede avantajlı fiyat; leasing ile 6 ay ödemesiz, 60 aya varan vade seçenekleri. DELLIFT.",
+   "h1": "Finansal Çözümler",
+   "alt": "Peşin alımda avantajlı fiyat, leasing ile 60 aya varan vade.",
+   "gorsel": "/assets/img/forklift-nigmer-800.webp",
+   "icerik": "<span class=\"etiket\">Finansal Çözümler</span>\n<h2 style=\"margin-top:0\">Peşin alın, avantajlı fiyattan yararlanın</h2>\n<p>Forklift alımında en avantajlı yol peşin alımdır. Peşin ödemelerde size özel fiyat çalışıyor, stoktaki makineleri hızlıca teslim ediyoruz. Ara finansman maliyeti olmadan makineniz doğrudan sizin olur.</p>\n<div class=\"vurgu\"><b>Peşin alımda özel fiyat</b>İhtiyacınızı paylaşın, peşin ödeme için net fiyat teklifimizi aynı gün iletelim.</div>\n<h2>Leasing ile finansman</h2>\n<p>Nakit akışınızı korumak istiyorsanız forklifti leasing (finansal kiralama) yöntemiyle edinebilirsiniz. Anlaşmalı leasing şirketleri aracılığıyla:</p>\n<ul>\n<li><b>6 ay ödemesiz</b> başlangıç imkânı,</li>\n<li><b>60 aya varan</b> vade seçenekleri,</li>\n<li>İşletmenizin nakit akışına uygun ödeme planı,</li>\n<li>Vade sonunda makinenin mülkiyetinin size geçmesi</li>\n</ul>\n<p>gibi seçenekler sunulabilir. Leasing başvurusu için gereken belgeleri size iletir, süreci baştan sona takip ederiz. Kesin vade, ödemesiz dönem ve koşullar leasing şirketinin değerlendirmesine göre belirlenir.</p>\n<h2>Leasing süreci</h2>\n<ol class=\"adimlar\">\n<li><div>Makine ve fiyat üzerinde anlaşırız.</div></li>\n<li><div>Firmanızın belgeleriyle leasing başvurusu yapılır.</div></li>\n<li><div>Onayın ardından sözleşme imzalanır, makine teslim edilir.</div></li>\n</ol>"
+  },
+  "kvkk": {
+   "baslik": "KVKK Aydınlatma Metni",
+   "aciklama": "DELLIFT internet sitesi iletişim ve teklif formları için 6698 sayılı KVKK kapsamında aydınlatma metni.",
+   "h1": "KVKK Aydınlatma Metni",
+   "alt": "",
+   "gorsel": "/assets/img/forklift-nigmer-800.webp",
+   "icerik": "<h2 style=\"margin-top:0\">Kişisel Verilerin Korunması ve Aydınlatma Metni</h2>\n<p>6698 sayılı Kişisel Verilerin Korunması Kanunu (\"KVKK\") kapsamında kişisel verilerinizin korunmasına önem veriyoruz. İşbu Aydınlatma Metni, DELLIFT Forklift ve İstif Makinaları (\"DELLIFT\" veya \"Şirket\") tarafından internet sitemiz üzerinden sunulan iletişim ve teklif formları aracılığıyla elde edilen kişisel verilerin işlenmesine ilişkin olarak hazırlanmıştır.</p>\n<h3>1. Veri Sorumlusu</h3>\n<p>KVKK kapsamında kişisel verileriniz, veri sorumlusu sıfatıyla aşağıdaki şirket tarafından işlenmektedir:</p>\n<ul><li><b>Şirket:</b> DELLIFT Forklift ve İstif Makinaları</li><li><b>Adres:</b> Battalgazi Mah. Egemen Sk. No:20, Sultanbeyli / İstanbul</li><li><b>Telefon:</b> 0534 821 70 50</li><li><b>E-posta:</b> info@dellift.com.tr</li></ul>\n<h3>2. İşlenen Kişisel Veriler</h3>\n<p>İnternet sitemizdeki iletişim ve teklif formları aracılığıyla aşağıdaki kişisel verileriniz işlenebilmektedir:</p>\n<ul><li>Ad ve soyad,</li><li>Telefon numarası,</li><li>E-posta adresi,</li><li>Firma adı,</li><li>Form aracılığıyla ilettiğiniz mesaj, talep ve teklif bilgileri.</li></ul>\n<p>Formlarda yalnızca talebinizin değerlendirilmesi ve sizinle iletişim kurulması için gerekli bilgiler alınmaktadır.</p>\n<h3>3. Kişisel Verilerin İşlenme Amaçları</h3>\n<p>Toplanan kişisel verileriniz;</p>\n<ul><li>İletişim taleplerinizin alınması ve cevaplandırılması,</li><li>Teklif taleplerinizin değerlendirilmesi,</li><li>Talebinize uygun ürün veya hizmetlerin belirlenmesi,</li><li>Forklift ve iş makinası satış, kiralama, servis, yedek parça ve finansal çözüm talepleriniz hakkında sizinle iletişim kurulması,</li><li>Talep ve müşteri ilişkileri süreçlerinin yürütülmesi,</li><li>Müşteri memnuniyetinin sağlanması,</li><li>Gerekli hâllerde hukuki yükümlülüklerin yerine getirilmesi</li></ul>\n<p>amaçlarıyla sınırlı olarak işlenmektedir. Kişisel verileriniz, toplandıkları amaçlarla bağlantılı, sınırlı ve ölçülü şekilde işlenir.</p>\n<h3>4. Kişisel Verilerin Toplanma Yöntemi ve Hukuki Sebebi</h3>\n<p>Kişisel verileriniz, internet sitemizdeki iletişim ve teklif formlarını doldurmanız suretiyle elektronik ortamda elde edilmektedir. Bu veriler, KVKK'nın 5. maddesinde belirtilen \"bir sözleşmenin kurulması veya ifasıyla doğrudan doğruya ilgili olması\" ve \"ilgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla veri sorumlusunun meşru menfaatleri için veri işlenmesinin zorunlu olması\" hukuki sebeplerine dayanılarak işlenmektedir.</p>\n<h3>5. Kişisel Verilerin Aktarılması</h3>\n<p>İletişim ve teklif formları aracılığıyla elde edilen kişisel verileriniz satış veya pazarlama amacıyla üçüncü kişilerle paylaşılmaz. Kişisel verileriniz yalnızca DELLIFT bünyesinde, talebinizin değerlendirilmesi ve size geri dönüş yapılması için yetkili kişiler tarafından erişilebilir şekilde işlenir. Finansman (leasing) talep etmeniz hâlinde, talebinizin değerlendirilebilmesi için gerekli bilgiler yalnızca sizin onayınızla ilgili finans kuruluşuna iletilir. Kanunen yetkili kamu kurum ve kuruluşlarının usulüne uygun talepleri veya Şirketimizin hukuki yükümlülüklerini yerine getirmesi gereken durumlarda, mevzuatın izin verdiği ölçüde ilgili mercilerle paylaşım yapılabilir.</p>\n<h3>6. Kişisel Verilerin Saklanması</h3>\n<p>Kişisel verileriniz, işlenme amaçlarının gerektirdiği süre boyunca ve ilgili mevzuatta öngörülen yasal saklama süreleri çerçevesinde muhafaza edilir. İşleme amacının ortadan kalkması ve verilerin saklanmasını gerektiren başka bir hukuki yükümlülüğün bulunmaması hâlinde kişisel verileriniz mevzuata uygun şekilde silinir, yok edilir veya anonim hâle getirilir.</p>\n<h3>7. Kişisel Verilerin Güvenliği</h3>\n<p>DELLIFT, kişisel verilerin hukuka aykırı olarak işlenmesini ve erişilmesini önlemek, kişisel verilerin güvenli şekilde muhafaza edilmesini sağlamak amacıyla gerekli teknik ve idari tedbirleri almaktadır. Kişisel verilere yalnızca görevleri gereği erişmesi gereken yetkili kişiler erişebilir.</p>\n<h3>8. KVKK Kapsamındaki Haklarınız</h3>\n<p>KVKK'nın 11. maddesi kapsamında veri sahibi olarak;</p>\n<ul><li>Kişisel verilerinizin işlenip işlenmediğini öğrenme,</li><li>İşlenmişse buna ilişkin bilgi talep etme,</li><li>İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,</li><li>Kişisel verilerinizin aktarıldığı üçüncü kişileri öğrenme,</li><li>Eksik veya yanlış işlenmiş kişisel verilerin düzeltilmesini isteme,</li><li>Kanuni şartların oluşması hâlinde kişisel verilerin silinmesini veya yok edilmesini isteme,</li><li>Yapılan düzeltme, silme veya yok etme işlemlerinin verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme,</li><li>Kanunda belirtilen diğer haklarınızı kullanma</li></ul>\n<p>hakkına sahipsiniz.</p>\n<h3>9. Başvuru</h3>\n<p>KVKK kapsamındaki taleplerinizi <b>info@dellift.com.tr</b> e-posta adresine veya <b>Battalgazi Mah. Egemen Sk. No:20, Sultanbeyli / İstanbul</b> adresine yazılı olarak iletebilirsiniz. Başvurularınız, talebin niteliğine göre en geç 30 gün içinde 6698 sayılı Kanun ve ilgili mevzuat kapsamında değerlendirilerek sonuçlandırılacaktır.</p>"
+  }
+ }
+}
