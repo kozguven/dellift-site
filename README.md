@@ -10,7 +10,7 @@ Forklift ve istif makinaları firması DELLIFT'in web sitesi + yönetim paneli (
   Her kayıtta `veri/yedek/` altına yedek (son 40). Şifre: tek kullanımlık bağlantı / "Şifremi unuttum" → info@dellift.com.tr.
 - Form (`gonder.php`): e-posta + panelde "Gelen talepler" (`veri/mesajlar.json`).
 - Footer'da Webizmo bağlantısı ("yazılım firması istanbul").
-- `araclar/build.py` + `veri.py` artık arşiv; `site/` ve `docs/` eski statik sürüm (GitHub Pages önizlemesi).
+- `araclar/build.py` + `veri.py` artık arşiv; `site/` eski statik sürüm. GitHub Pages önizlemesi 01.11.2026 kapatıldı.
 
 ## Yerel deneme
 `php -S 127.0.0.1:8090 -t web araclar/router.php` → panel için yerelde `web/veri/kullanici.json` gerekir (gitignore'da).
