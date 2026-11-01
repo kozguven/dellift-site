@@ -3,7 +3,7 @@
 Forklift ve istif makinaları firması DELLIFT'in web sitesi + yönetim paneli (Ekrem'in getirdiği iş, 27.10.2026; panel ve yayın 01.11.2026).
 
 ## Yapı
-- `web/` = canlıdaki `public_html` (Cenuta Limitsiz M, cPanel kullanıcı `delliftc`, sunucu cp68.servername.co, **PHP 7.4** — PHP 8 sözdizimi kullanma).
+- `web/` = canlıdaki `public_html` (Cenuta Limitsiz M, cPanel kullanıcı `delliftc`, sunucu cp68.servername.co, **PHP 8.3**, CloudLinux PHP Selector; upload 64M, post 128M, zip + opcache açık; kod 7.4 uyumlu da kalsın).
 - `web/index.php` ön denetleyici; şablonlar `web/inc/` (eski `build.py`'nin PHP karşılığı). İçerik `web/veri/icerik.json`.
 - Yönetim paneli: `https://dellift.com.tr/yonetim/` (kullanıcı `dellift`). Ürünler, detay sayfaları (galeri + teknik tablo),
   kataloglar (PDF, kapak otomatik), banner, kategori, marka, SSS, sayfa metinleri, firma bilgileri, gelen talepler.
