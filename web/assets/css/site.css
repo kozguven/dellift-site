@@ -349,3 +349,9 @@ table.teknik tr.ara th{background:var(--acik);color:var(--kirmizi);font-family:v
 .pdf-durum{text-align:center;color:var(--gri);padding:60px 10px;margin:0}
 .pdf-durum a{color:var(--kirmizi);font-weight:600}
 @media(max-width:560px){.pdf-gorunum{padding:6px;gap:6px}.katalog-bas .urun-btn{width:100%}}
+.sayfalama{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:28px 0 0}
+.sayfalama a,.sayfalama span{min-width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;padding:0 10px;border:1px solid var(--cizgi);border-radius:var(--r);background:#fff;text-decoration:none;font-weight:600;color:var(--murekkep)}
+.sayfalama a:hover{border-color:var(--kirmizi);color:var(--kirmizi)}
+.sayfalama span[aria-current]{background:var(--kirmizi);border-color:var(--kirmizi);color:#fff}
+.sayfalama .pasif{color:var(--cizgi)}.sayfalama .bosluk{border:0;background:none;min-width:auto}
+.sayfalama small{margin-left:8px;color:var(--gri)}

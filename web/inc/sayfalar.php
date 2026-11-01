@@ -82,18 +82,37 @@ function urun_kart(array $u): string {
 <table>' . $satir . '</table><div class="urun-btn">' . $detay . '<a class="btn btn-k" href="' . e(wa('Merhaba, ' . $u['ad'] . ' için fiyat almak istiyorum.')) . '" target="_blank" rel="noopener">Fiyat Sor ' . I['ok'] . '</a></div></div></div>';
 }
 
-function katalog_kartlari(string $marka, ?string $kat_slug = null): string {
-    $m = marka_ad($marka);
-    $o = '';
-    foreach (kataloglar($marka, $kat_slug) as $k) {
-        $sf = '/katalog/' . $marka . '/' . $k['slug'];
-        $kk = kat($k['kat']);
-        $kapak = $k['kapak'] ?: '/assets/img/forklift-nigmer-800.webp';
-        $o .= '<div class="kt"><a href="' . e($sf) . '"><img src="' . e($kapak) . '" alt="' . e("$m {$k['model']}") . ' kataloğu" loading="lazy"></a>
+function katalog_kart(array $k): string {
+    $m = marka_ad($k['marka']);
+    $sf = '/katalog/' . $k['marka'] . '/' . $k['slug'];
+    $kk = kat($k['kat']);
+    $kapak = $k['kapak'] ?: '/assets/img/forklift-nigmer-800.webp';
+    return '<div class="kt"><a href="' . e($sf) . '"><img src="' . e($kapak) . '" alt="' . e("$m {$k['model']}") . ' kataloğu" loading="lazy"></a>
 <div class="ic"><span class="tur">' . e($kk['kisa'] ?? '') . '</span><b><a href="' . e($sf) . '" style="text-decoration:none">' . e("$m {$k['model']}") . '</a></b><p>' . e($k['aciklama']) . '</p>
 <div class="bag"><a href="' . e($sf) . '">Kataloğu incele' . (($k['dil'] ?? '') === 'EN' ? ' (İng.)' : '') . '</a><a class="wa" href="' . e(wa("Merhaba, $m {$k['model']} için fiyat almak istiyorum.")) . '" target="_blank" rel="noopener">Fiyat sor →</a></div></div></div>';
+}
+
+/** Katalog listesi: 12'şerli sayfalı; $marka_basligi=true ise sayfa içinde marka başlıklarıyla gruplanır. */
+function katalog_blok(array $liste, bool $marka_basligi): string {
+    if (!$liste) return '';
+    $sp = sayfala($liste, 12, 'sayfa', 'katalog');
+    $o = ''; $grup = null; $ic = '';
+    foreach ($sp['l'] as $k) {
+        if ($marka_basligi && $k['marka'] !== $grup) {
+            if ($ic !== '') { $o .= '<div class="katalog">' . $ic . '</div>'; $ic = ''; }
+            $o .= '<h3 style="margin:32px 0 0;font-size:1.5rem">' . e(marka_ad($k['marka'])) . '</h3>';
+            $grup = $k['marka'];
+        }
+        $ic .= katalog_kart($k);
     }
-    return $o ? '<div class="katalog">' . $o . '</div>' : '';
+    if ($ic !== '') { $o .= '<div class="katalog">' . $ic . '</div>'; }
+    return $o . $sp['nav'];
+}
+
+/** Ürün kartları: 12'şerli sayfalı (?urun=N). */
+function urun_blok(array $us): string {
+    $sp = sayfala($us, 12, 'urun', 'modeller');
+    return '<div class="urunler">' . implode('', array_map('urun_kart', $sp['l'])) . '</div>' . $sp['nav'];
 }
 
 function marka_kartlari(array $ms, string $kat_ad): string {
@@ -247,12 +266,10 @@ function kategori_sayfasi(array $k): string {
     foreach (kategoriler() as $x) { $cip .= '<a href="/' . e($x['slug']) . '"' . ($x['slug'] === $k['slug'] ? ' aria-current=page' : '') . '>' . e($x['ad']) . '</a>'; }
     $cip .= '</div>';
     $blok = '';
-    if ($us) { $blok .= '<h2 style="margin-top:48px">Öne çıkan modeller</h2><div class="urunler">' . implode('', array_map('urun_kart', $us)) . '</div>'; }
-    $kt = '';
-    foreach (markalar() as $m) {
-        if ($c = katalog_kartlari($m['slug'], $k['slug'])) { $kt .= '<h3 style="margin:32px 0 0;font-size:1.5rem">' . e($m['ad']) . '</h3>' . $c; }
-    }
-    if ($kt) { $blok .= '<h2 style="margin-top:48px">Model kataloğu</h2><p style="color:var(--gri)">Üretici broşürleri; modele tıklayarak teknik föyü inceleyip fiyat için bize yazabilirsiniz.</p>' . $kt; }
+    if ($us) { $blok .= '<h2 style="margin-top:48px" id="modeller">Öne çıkan modeller</h2>' . urun_blok($us); }
+    $kl = [];
+    foreach (markalar() as $m) { foreach (kataloglar($m['slug'], $k['slug']) as $x) { $kl[] = $x; } }
+    if ($kl) { $blok .= '<h2 style="margin-top:48px" id="katalog">Model kataloğu</h2><p style="color:var(--gri)">Üretici broşürleri; modele tıklayarak teknik föyü inceleyip fiyat için bize yazabilirsiniz.</p>' . katalog_blok($kl, true); }
     if ($ms) {
         $blok .= '<h2 style="margin-top:48px">Markalar</h2><p style="color:var(--gri)">Güncel model, stok ve teknik föy için markayı seçip bize yazın.</p>' . marka_kartlari($ms, $k['ad']);
     } else {
@@ -285,12 +302,12 @@ function marka_sayfasi(array $m): string {
 <div class="bag"><a class="wa" href="' . e(wa("Merhaba, {$m['ad']} " . kucuk($k['ad']) . ' modelleri hakkında bilgi almak istiyorum.')) . '" target="_blank" rel="noopener">WhatsApp\'tan sor →</a><a href="/' . e($k['slug']) . '">Kategoriye git</a></div></div>';
     }
     $us = array_values(array_filter(urunler(), fn($u) => $u['marka'] === $m['slug']));
-    $blok = $us ? '<h2 style="margin-top:40px">Modeller</h2><div class="urunler">' . implode('', array_map('urun_kart', $us)) . '</div>' : '';
+    $blok = $us ? '<h2 style="margin-top:40px" id="modeller">Modeller</h2>' . urun_blok($us) : '';
     $cip = '<div class="cipler">';
     foreach (markalar() as $x) { $cip .= '<a href="/marka/' . e($x['slug']) . '"' . ($x['slug'] === $m['slug'] ? ' aria-current=page' : '') . '>' . e($x['ad']) . '</a>'; }
     $cip .= '</div>';
-    $kt = katalog_kartlari($m['slug']);
-    $ktb = $kt ? '<h2 style="margin-top:48px">' . e($m['ad']) . ' model kataloğu</h2><p style="color:var(--gri)">Üretici broşürleri; modele tıklayarak teknik föyü inceleyebilirsiniz.</p>' . $kt : '';
+    $kl = kataloglar($m['slug']);
+    $ktb = $kl ? '<h2 style="margin-top:48px" id="katalog">' . e($m['ad']) . ' model kataloğu</h2><p style="color:var(--gri)">Üretici broşürleri; modele tıklayarak teknik föyü inceleyebilirsiniz.</p>' . katalog_blok($kl, false) : '';
     $govde = sayfa_bas($m['ad'], $m['ozet'], [['Ürünler', '/urunler'], [$m['ad'], null]]) . '<section class="bolum"><div class="kap">
 <div class="metin"><p style="font-size:1.12rem">' . e($m['ad']) . ' markalı forklift ve depo ekipmanlarında satış, kiralama ve servis hizmeti veriyoruz. Güncel model listesi, teknik föy ve fiyat için bize yazın; ihtiyacınıza en uygun modeli birlikte belirleyelim.</p></div>
 ' . $cip . $blok . $ktb . '<h2 style="margin-top:40px">' . e($m['ad']) . ' ürün grupları</h2><div class="marka-kartlar">' . $liste . '</div></div></section>' . iletisim_blok();

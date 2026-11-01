@@ -9,3 +9,4 @@ web/veri/giris-deneme.json
 web/veri/yedek/
 web/assets/yuklenen/*
 !web/assets/yuklenen/.keep
+gizli/

@@ -21,6 +21,10 @@ function sayfa(string $yol, string $baslik, string $aciklama, string $govde, str
     $tam = str_contains($baslik, 'DELLIFT') ? $baslik : "$baslik | DELLIFT Forklift";
     $site = F('site');
     $kanonik = $site . ($yol === 'index' ? '/' : '/' . $yol);
+    if (!empty($GLOBALS['SAYFA_NO'])) {
+        $kanonik .= '?sayfa=' . $GLOBALS['SAYFA_NO'];
+        $tam = preg_replace('~ \| DELLIFT Forklift$~', '', $tam) . ' – Sayfa ' . $GLOBALS['SAYFA_NO'] . ' | DELLIFT Forklift';
+    }
     $sema = '';
     if ($yol === 'index') {
         $sema = '<script type="application/ld+json">' . js(['@context' => 'https://schema.org', '@type' => 'LocalBusiness',

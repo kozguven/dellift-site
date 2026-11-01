@@ -65,3 +65,7 @@ body.giris{display:grid;place-items:center;min-height:100vh;padding:16px}
 }
 
 .alan-yaz .vurgu b{display:block}
+.sayfalama{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:16px 0 0}
+.sayfalama a,.sayfalama span{min-width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;padding:0 10px;border:1px solid var(--c);border-radius:8px;background:var(--b);text-decoration:none;font-weight:600;color:var(--y)}
+.sayfalama span[aria-current]{background:var(--k);border-color:var(--k);color:#fff}.sayfalama .pasif{color:var(--c)}.sayfalama .bosluk{border:0;background:none;min-width:auto}.sayfalama small{margin-left:8px;color:var(--g)}
+.ara-kutu{display:flex;gap:8px;align-items:center;margin:0 0 14px;max-width:480px}.ara-kutu a{white-space:nowrap}

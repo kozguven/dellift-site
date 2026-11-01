@@ -280,7 +280,8 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
             if ($islem === 'tasi' && $i !== null && isset($l[$i])) {
                 $j = $i + ((($_POST['yon'] ?? '') === 'yukari') ? -1 : 1);
                 if (isset($l[$j])) { [$l[$i], $l[$j]] = [$l[$j], $l[$i]]; $v[$s] = $l; veri_yaz($v); }
-                header("Location: ?s=$s" . (isset($_GET['f']) ? '&f=' . urlencode((string)$_GET['f']) : '') . '#k' . $j); exit;
+                $q = $_GET; unset($q['i'], $q['yeni']);
+                header('Location: ?' . http_build_query($q) . '#k' . $j); exit;
             }
         }
         if ($s === 'sayfalar' && $islem === 'kaydet') {
@@ -312,7 +313,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
             unset($m);
             ftruncate($fp, 0); rewind($fp); fwrite($fp, json_encode(array_values($l), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
             flock($fp, LOCK_UN); fclose($fp);
-            header('Location: ?s=mesajlar'); exit;
+            header('Location: ?s=mesajlar' . (!empty($_GET['p']) ? '&p=' . (int)$_GET['p'] : '')); exit;
         }
         if ($s === 'hesap' && $islem === 'sifre') {
             $k = kullanici();
@@ -435,7 +436,8 @@ if ($s === 'mesajlar') {
     bildirimler($mesaj, $hata);
     $ms = json_decode((string)@file_get_contents(VERI . '/mesajlar.json'), true) ?: [];
     if (!$ms) echo '<p class="bos">Henüz talep yok.</p>';
-    foreach ($ms as $m) {
+    $sp = sayfala($ms, 20, 'p');
+    foreach ($sp['l'] as $m) {
         $tel = preg_replace('~\D~', '', $m['tel']);
         $wa = str_starts_with($tel, '0') ? '9' . $tel : (str_starts_with($tel, '90') ? $tel : '90' . $tel);
         echo '<div class="mesaj' . (empty($m['okundu']) ? ' yeni' : '') . '"><div class="m-bas"><b>' . e($m['ad']) . '</b>' . ($m['firma'] ? ' · ' . e($m['firma']) : '') . '<span>' . e(date('d.m.Y H:i', strtotime($m['tarih']))) . '</span></div>
@@ -443,6 +445,7 @@ if ($s === 'mesajlar') {
 <p>' . nl2br(e($m['mesaj'])) . '</p>
 <form method="post" class="m-islem">' . csrf_alan() . '<input type="hidden" name="id" value="' . e($m['id']) . '"><button name="islem" value="okundu" class="btn ince">' . (empty($m['okundu']) ? 'Okundu işaretle' : 'Okunmadı yap') . '</button><button name="islem" value="sil" class="btn ince sil" data-onay="Bu talep silinsin mi?">Sil</button></form></div>';
     }
+    echo $sp['nav'];
     alt(); exit;
 }
 
@@ -485,6 +488,7 @@ if (isset($KOL[$s])) {
     echo '<div class="baslik-satir"><h1>' . e($t['ad']) . '</h1><a class="btn" href="?s=' . $s . '&yeni=1">+ Yeni ' . e($t['tekil']) . '</a></div><p class="aciklama">' . e($t['aciklama']) . '</p>';
     bildirimler($mesaj, $hata);
     $f = (string)($_GET['f'] ?? '');
+    $ara = trim((string)($_GET['q'] ?? ''));
     if (!empty($t['filtre'])) {
         echo '<div class="filtre"><a href="?s=' . $s . '"' . ($f === '' ? ' class="aktif"' : '') . '>Tümü (' . count($l) . ')</a>';
         foreach (markalar() as $m) {
@@ -493,15 +497,27 @@ if (isset($KOL[$s])) {
         }
         echo '</div>';
     }
-    echo '<ul class="liste">';
+    if (count($l) > 10) {
+        echo '<form class="ara-kutu" method="get"><input type="hidden" name="s" value="' . e($s) . '">' . ($f !== '' ? '<input type="hidden" name="f" value="' . e($f) . '">' : '') .
+            '<input type="search" name="q" value="' . e($ara) . '" placeholder="Ara…"><button class="btn ince">Ara</button>' . ($ara !== '' ? '<a href="?s=' . e($s) . ($f !== '' ? '&f=' . e($f) : '') . '">Temizle</a>' : '') . '</form>';
+    }
+    $gorunen = [];
     foreach ($l as $i => $x) {
         if ($f !== '' && ($x[$t['filtre']] ?? '') !== $f) continue;
+        if ($ara !== '' && mb_stripos(kucuk(($t['goster'])($x) . ' ' . (!empty($t['alt']) ? ($t['alt'])($x) : '')), kucuk($ara)) === false) continue;
+        $gorunen[$i] = $x;
+    }
+    $sp = sayfala(array_keys($gorunen), 25, 'p');
+    echo '<ul class="liste">';
+    foreach ($sp['l'] as $i) {
+        $x = $gorunen[$i];
         $r = !empty($t['resim']) ? ($t['resim'])($x) : '';
         echo '<li id="k' . $i . '">' . ($r ? '<img src="' . e($r) . '" alt="" loading="lazy">' : '') . '<a class="l-ad" href="?s=' . $s . '&i=' . $i . '"><b>' . e(($t['goster'])($x)) . '</b>' . (!empty($t['alt']) ? '<small>' . e(($t['alt'])($x)) . '</small>' : '') . '</a>
-<form method="post" class="tasi" action="?s=' . $s . ($f !== '' ? '&f=' . e($f) : '') . '">' . csrf_alan() . '<input type="hidden" name="islem" value="tasi"><input type="hidden" name="i" value="' . $i . '"><button name="yon" value="yukari" title="Yukarı">▲</button><button name="yon" value="asagi" title="Aşağı">▼</button></form>
+<form method="post" class="tasi" action="?' . e(http_build_query(array_diff_key($_GET, ['i' => 1, 'yeni' => 1]))) . '">' . csrf_alan() . '<input type="hidden" name="islem" value="tasi"><input type="hidden" name="i" value="' . $i . '"><button name="yon" value="yukari" title="Yukarı">▲</button><button name="yon" value="asagi" title="Aşağı">▼</button></form>
 <a class="btn ince" href="?s=' . $s . '&i=' . $i . '">Düzenle</a></li>';
     }
-    echo '</ul>';
+    echo '</ul>' . $sp['nav'];
+    if ($l && !$gorunen) echo '<p class="bos">Aramaya uyan kayıt yok.</p>';
     if (!$l) echo '<p class="bos">Henüz kayıt yok.</p>';
     alt(); exit;
 }

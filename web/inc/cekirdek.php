@@ -6,7 +6,7 @@ declare(strict_types=1);
 if (!function_exists('str_starts_with')) { function str_starts_with(string $h, string $n): bool { return $n === '' || strncmp($h, $n, strlen($n)) === 0; } }
 if (!function_exists('str_contains')) { function str_contains(string $h, string $n): bool { return $n === '' || strpos($h, $n) !== false; } }
 
-const SURUM = '8';
+const SURUM = '9';
 define('KOK', dirname(__DIR__));
 define('VERI', KOK . '/veri');
 const PDFJS = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/';
@@ -68,6 +68,39 @@ function slugla(string $s): string {
     $s = strtr(kucuk($s), ['ç' => 'c', 'ğ' => 'g', 'ı' => 'i', 'ö' => 'o', 'ş' => 's', 'ü' => 'u', 'â' => 'a', 'î' => 'i', 'û' => 'u']);
     $s = preg_replace('~[^a-z0-9]+~', '-', $s);
     return trim((string)$s, '-') ?: 'kayit';
+}
+
+/**
+ * Listeyi sayfalar. ?$param=N okunur; diğer sorgu parametreleri korunur.
+ * Dönen: ['l' => dilim, 'nav' => html, 'no' => sayfa, 'son' => son sayfa, 'toplam' => adet]
+ */
+function sayfala(array $l, int $adet, string $param = 'sayfa', string $capa = ''): array {
+    $toplam = count($l);
+    $son = max(1, (int)ceil($toplam / $adet));
+    $no = min($son, max(1, (int)($_GET[$param] ?? 1)));
+    if ($param === 'sayfa' && $no > 1) { $GLOBALS['SAYFA_NO'] = $no; }
+    $nav = '';
+    if ($son > 1) {
+        $q = $_GET; unset($q[$param]);
+        $url = function (int $n) use ($q, $param, $capa): string {
+            $x = $q; if ($n > 1) { $x[$param] = $n; }
+            $s = http_build_query($x);
+            $yol = strtok((string)($_SERVER['REQUEST_URI'] ?? '/'), '?');
+            return e(($s !== '' ? '?' . $s : $yol) . ($capa !== '' ? '#' . $capa : ''));
+        };
+        $nav = '<nav class="sayfalama" aria-label="Sayfalar">';
+        $nav .= $no > 1 ? '<a href="' . $url($no - 1) . '" rel="prev" aria-label="Önceki sayfa">‹</a>' : '<span class="pasif">‹</span>';
+        $onceki = 0;
+        for ($i = 1; $i <= $son; $i++) {
+            if ($i !== 1 && $i !== $son && abs($i - $no) > 1) continue;
+            if ($onceki && $i - $onceki > 1) { $nav .= '<span class="bosluk">…</span>'; }
+            $nav .= $i === $no ? '<span aria-current="page">' . $i . '</span>' : '<a href="' . $url($i) . '">' . $i . '</a>';
+            $onceki = $i;
+        }
+        $nav .= $no < $son ? '<a href="' . $url($no + 1) . '" rel="next" aria-label="Sonraki sayfa">›</a>' : '<span class="pasif">›</span>';
+        $nav .= '<small>' . (($no - 1) * $adet + 1) . '–' . min($toplam, $no * $adet) . ' / ' . $toplam . '</small></nav>';
+    }
+    return ['l' => array_slice($l, ($no - 1) * $adet, $adet), 'nav' => $nav, 'no' => $no, 'son' => $son, 'toplam' => $toplam];
 }
 
 require __DIR__ . '/ikonlar.php';
